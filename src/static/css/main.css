@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  padding-bottom: 0;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
+  position: relative;
+  margin-top: -100px; /* negative value of footer height */
+  height: 100px;
+  clear: both;
+}
+
+.glyphicon {
+    font-size: 23px;
+}

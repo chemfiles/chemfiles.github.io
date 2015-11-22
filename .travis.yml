@@ -1,0 +1,23 @@
+language: python
+python:
+    - '3.5'
+
+install:
+    - git config --global user.email "luthaf@luthaf.fr"
+    - git config --global user.name "Travis-CI autobuild"
+    - git config credential.helper "store --file=.git/credentials"
+    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+script:
+    - rm -rf static
+    - rm -f *.html
+    - rm -f sitemap.xml robots.txt
+    - pip install cactus
+    - cd src
+    - cactus build
+    - cd ..
+    - mv src/build/* .
+    - git commit -a -m "Build the website"
+    - git push
+env:
+  global:
+      secure: "m6t23TJW3QIvJYrobP7He1YMP+RVd5GiO1lJjvxx0Iu2oJ/zC4M49L7BCC3bsUkmovxzrMFkLiOtTOgRpJOVJN+PbzwHMqhamLb85Qke2sfgMyZQoslInYhERKqR5a6qsb7X1lHkENOWJahH9JnTnVlaTywTykQuA1g2tA51qsFlW4/Lhu2yHzpTkB08h85gT73zn5MlQGFlL+FZZ7cI4krXnQwGSg91ylN0Tdogd3dLje8XIgABkKscpj9l81akIUBvrZ4IsI0RbquZjd1CH95RnYK0dS5Fw0ZcLsySSr0XtEcNf64945seD0q1+TXXX+n9J2nxrqVYFhOUvlR31UUkdZhamekQAVtaS5MdRUL5DI0eS/sW9U5K0BcKEVptFKqG0uZiHxMn7R0Mm/GwDSStWqaxELxKY7mUUy/OWzL4C/x5okz1nj1vfcYgeZBbH6bjj+/udFwoH5XQqTUX9TjopYCu6XH5EruYnBA67JbCpw/2/4bdpWAUXAFDGWltYBVtd49PeY7j+n49zEVadDZEK4oQ7XPt0lDVQMu6Wm7PYHeLjxjbSHu1XcTftqg2uKD+6yOH5ONYGkzBOmK9KJdSozZB8KKOuK5vpA6+mASXcTDS6CREvsSg02UjOatJGG47KNmYctazA9LVh+bWgvQK1v0QWdI7uJSW78ZsvfU="
