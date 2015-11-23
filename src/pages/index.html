@@ -7,8 +7,11 @@
 
         <h1>Chemfiles</h1>
         <h2>An efficient library for reading and writing chemistry files</h2>
+        <br />
+        <p>Write code once, use it for any file format! Chemfiles provides a unified
+        interface for accessing and writing data in computational chemistry files
+        (trajectories, configurations and topologies).</p>
 
-        <p>Write your code once, use it every file formats! Chemfiles provide an unified interface for accessing the data in all the supported file formats.</p>
         <div class="input-group-btn text-center">
             <a href="http://github.com/chemfiles/chemfiles/releases/">
                 <button class="btn-success" type="button" name="Download">
@@ -30,10 +33,13 @@
     <div class="row">
         <div class="col-lg-4">
             <h2><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-                Formats agnostic
+                Format agnostic
             </h2>
-            <p>The biggest strength of chemfiles is to provide an unique way to access the data stored in all the formats.</p>
-            <p>Moreover, not all formats are text-based, so chemfiles support both text and binary formats.</p>
+            <p>Chemfiles provides a unique interface for all supported file formats. Read
+            XYZ, PDB, NetCDF, TRJ and <a href="http://chemfiles.readthedocs.org/en/latest/formats.html#list-of-supported-formats">
+            other formats</a> with the exact same code.</p>
+            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS, NetCDF, …)
+            formats.</p>
         </div>
         <div class="col-lg-4">
             <img src="{% static '/static/images/words.png' %}" alt="Words cloud" class="img-responsive"/>
@@ -43,103 +49,83 @@
                 Easy to use
             </h2>
 
-            <p>Chemfiles is built in an object-oriented fashion, with only 5 classes in the
-            public interface.</p>
-            <p>The interface focus on simplicity, and have an extensive documentation</p>
+            <p>Chemfiles is built in an object-oriented fashion, and the public interface
+            consists of 5 classes only.</p>
+            <p>The interface focuses on simplicity, and has extensive
+            <a href="http://chemfiles.readthedocs.org/en/latest/">documentation</a>.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
             <h2><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                Multi-languages
+                Multiple languages
             </h2>
-            <p>Chemfiles is written in C++, but you can use it from all the major
+            <p>Chemfiles is written in C++, but you can use it with all the major
             scientific languages:</p>
 
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles" title="C++">
+                        <img src="{% static '/static/images/logo-cxx.png' %}" alt="C++ logo"/>
+                    </a>
+                    <p>C++</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles" title="C">
+                        <img src="{% static '/static/images/logo-c.png' %}" alt="C logo"/>
+                    </a>
                     <p>C</p>
                 </div>
-                <div class="col-xs-4">
-                    <a href="http://github.com/chemfiles/chemfiles.f90">Fortran</a>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.f90" title="Fortran">
+                        <img src="{% static '/static/images/logo-fortran.png' %}" alt="Fortran logo" />
+                    </a>
+                    <p>Fortran</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-4">
-                    <p><a href="http://github.com/chemfiles/chemfiles.py">Python</a> (2 &amp; 3)</p>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.py" title="Python">
+                        <img src="{% static '/static/images/logo-python.png' %}" alt="Python logo" />
+                    </a>
+                    <p>Python 2 &amp; 3</p>
                 </div>
-                <div class="col-xs-4">
-                    <a href="http://github.com/chemfiles/Chemfiles.jl">Julia</a>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/Chemfiles.jl" title="Julia">
+                        <img src="{% static '/static/images/logo-julia.png' %}" alt="Julia logo" />
+                    </a>
+                    <p>Julia</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <a href="http://github.com/chemfiles/chemfiles.rs">Rust</a>
-                </div>
-                <div class="col-xs-4">
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.rs" title="Rust">
+                        <img src="{% static '/static/images/logo-rust.png' %}" alt="Rust logo" />
+                    </a>
+                    <p>Rust</p>
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
             <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                Intended audience
+                Who is it for?
             </h2>
 
-            <p>Chemfiles is a software library built for scientists how write their own
+            <p>Chemfiles is a software library built for scientists who write their own
             analysis or simulation code.</p>
 
-            <h4>Analysis</h4>
-            <p>You can reuse the same code even if you change the underlying format.</p>
-
-            <h4>Simulation</h4>
-            <p>Chemfiles can provide IO facilities, allowing you to read and write
-            all the supported formats.</p>
+            <p>It does not provide analysis code, but if you are insterested you can find
+            implementation of some simple algorithms in a ready-to-use command line program
+            using Chemfiles at the <a href="https://github.com/chemfiles/chrp">chrp</a>
+            repository.</p>
         </div>
         <div class="col-lg-4">
             <h2><img src="{% static '/static/images/github.png' %}" alt="Github icon"/>
                 Open-source
             </h2>
-            <p>Chemfiles is open-source, the code is hosted on <a href="http://github.com/chemfiles/chemfiles">Gihtub</a>, and is open to your contibution!</p>
+            <p>Chemfiles is open-source under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-v2</a>
+            licence, hosted on <a href="http://github.com/chemfiles/chemfiles">Gihtub</a>,
+            and open to your contributions!</p>
 
-            <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Gihtub issues</a>.</p>
-
-            <p>It is distributed under the <a href="https://www.mozilla.org/MPL/">MPL-v2</a> licence.</p>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <hr style="width: 70%" />
-    <div class="row">
-        <div class="col-lg-6">
-            <h1>Goals of Chemfiles</h1>
-            <h3>Focus on simplicity</h3>
-            <p>Chemfiles focus on simplicity, and aims to be simple, easy to use and
-            provide a clean and consistent interface.</p>
-
-            <p>Chemfiles also try to make it easy to add new formats in the code, by
-            separating file reading and format parsing.</p>
-
-            <h3>Run on all major platforms</h3>
-            <p>Chemfiles is cross-platform and run on Linux, OS X and Windows. It is
-            usable from all the major scientific languages.
-            </p>
-
-            <h3>Have good quality code</h3>
-            <p>Chemfiles try to have high-quality code, using modern software engineering
-            technics such as Unit testing</p>
-        </div>
-        <div class="col-lg-6">
-            <h1>Non-goals of Chemfiles</h1>
-            <h3>Implement analysis code</h3>
-            <p>Chemfiles will not contains any code for trajectory analysis. You can find
-            implementation of some basic analysis algorithms and a ready-to-use command
-            line program using Chemfiles in the <a href="https://github.com/chemfiles/chrp">
-            chrp</a> repository.</p>
-            <h3>Implement simulation code</h3>
-            <p>Chemfiles will not contain molecular dynamics, Monte-Carlo, energy
-            minimization or quantum chemistry code.
-            </p>
+            <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Gihtub issue</a>.</p>
         </div>
     </div>
 </div>

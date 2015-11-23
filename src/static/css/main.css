@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   padding-bottom: 0;
+  font-size: 12pt;
 }
 
 #wrap {
@@ -9,7 +10,7 @@ html, body {
 
 #main {
   overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
+  padding-bottom:100px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
@@ -17,15 +18,17 @@ html, body {
   text-align: center;
   font-size: 15px;
   font-weight: 200;
-  line-height: 2.1428571435;
-  color: inherit;
   background-color: #eeeeee;
   position: relative;
-  margin-top: -100px; /* negative value of footer height */
-  height: 100px;
+  margin-top: -90px; /* negative value of footer height */
+  height: 90px;
   clear: both;
 }
 
 .glyphicon {
     font-size: 23px;
+}
+
+.images-table {
+    padding: 5px;
 }
