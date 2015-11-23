@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <style>
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+    </style>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/js/vendor/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/index.html">Chemfiles</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/index.html">Home</a></li>
+            <li class=""><a href="/contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://chemfiles.readthedocs.org/">Main documentation (C++)</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Other languages</li>
+                    <li><a href="http://chemfiles.readthedocs.org/en/latest/c-api.html">C</a></li>
+                    <li><a href="http://chemfiles.readthedocs.org/projects/fortran/en/latest/">Fortran</a></li>
+                    <li><a href="http://chemfiles.readthedocs.org/projects/python/en/latest/">Python</a></li>
+                    <li><a href="http://chemfiles.readthedocs.org/projects/julia/en/latest/">Julia</a></li>
+                    <li><a href="http://chemfiles.github.io/chemfiles.rs/chemfiles/">Rust</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!--/.navbar-collapse -->
+</div>
+</div>
+
+    </div>
+
+    <div id="wrap">
+        <div id="main">
+            
+<div class="jumbotron">
+    <div class="container">
+        <img src="/static/images/chemfiles.png" alt="Chemfiles logo" class="img-responsive pull-right"/>
+
+        <h1>Chemfiles</h1>
+        <h2>An efficient library for reading and writing chemistry files</h2>
+        <br />
+        <p>Write code once, use it for any file format! Chemfiles provides a unified
+        interface for accessing and writing data in computational chemistry files
+        (trajectories, configurations and topologies).</p>
+
+        <div class="input-group-btn text-center">
+            <a href="http://github.com/chemfiles/chemfiles/releases/">
+                <button class="btn-success" type="button" name="Download">
+                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                    Download
+                </button>
+            </a>
+            <a href="http://chemfiles.readthedocs.org/">
+                <button class="btn-primary" type="button" name="Documentation">
+                    <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                    Documentation
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h2><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                Format agnostic
+            </h2>
+            <p>Chemfiles provides a unique interface for all supported file formats. Read
+            XYZ, PDB, NetCDF, TRJ and <a href="http://chemfiles.readthedocs.org/en/latest/formats.html#list-of-supported-formats">
+            other formats</a> with the exact same code.</p>
+            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS, NetCDF, …)
+            formats.</p>
+        </div>
+        <div class="col-lg-4">
+            <img src="/static/images/words.png" alt="Words cloud" class="img-responsive"/>
+        </div>
+        <div class="col-lg-4">
+            <h2><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                Easy to use
+            </h2>
+
+            <p>Chemfiles is built in an object-oriented fashion, and the public interface
+            consists of 5 classes only.</p>
+            <p>The interface focuses on simplicity, and has extensive
+            <a href="http://chemfiles.readthedocs.org/en/latest/">documentation</a>.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h2><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                Multiple languages
+            </h2>
+            <p>Chemfiles is written in C++, but you can use it with all the major
+            scientific languages:</p>
+
+            <div class="row">
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles" title="C++">
+                        <img src="/static/images/logo-cxx.png" alt="C++ logo"/>
+                    </a>
+                    <p>C++</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles" title="C">
+                        <img src="/static/images/logo-c.png" alt="C logo"/>
+                    </a>
+                    <p>C</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.f90" title="Fortran">
+                        <img src="/static/images/logo-fortran.png" alt="Fortran logo" />
+                    </a>
+                    <p>Fortran</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.py" title="Python">
+                        <img src="/static/images/logo-python.png" alt="Python logo" />
+                    </a>
+                    <p>Python 2 &amp; 3</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/Chemfiles.jl" title="Julia">
+                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
+                    </a>
+                    <p>Julia</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="http://github.com/chemfiles/chemfiles.rs" title="Rust">
+                        <img src="/static/images/logo-rust.png" alt="Rust logo" />
+                    </a>
+                    <p>Rust</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                Who is it for?
+            </h2>
+
+            <p>Chemfiles is a software library built for scientists who write their own
+            analysis or simulation code.</p>
+
+            <p>It does not provide analysis code, but if you are insterested you can find
+            implementation of some simple algorithms in a ready-to-use command line program
+            using Chemfiles at the <a href="https://github.com/chemfiles/chrp">chrp</a>
+            repository.</p>
+        </div>
+        <div class="col-lg-4">
+            <h2><img src="/static/images/github.png" alt="Github icon"/>
+                Open-source
+            </h2>
+            <p>Chemfiles is open-source under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-v2</a>
+            licence, hosted on <a href="http://github.com/chemfiles/chemfiles">Gihtub</a>,
+            and open to your contributions!</p>
+
+            <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Gihtub issue</a>.</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    
+        <footer class="footer">
+    <p>Chemfiles is copyright 2015 <a href="/contact.html">Guillaume Fraux</a>
+    and distributed under the MPL-v2 licence.</p>
+    <small>
+        <a href="http://github.com/chemfiles/chemfiles.github.io">Website</a> built with
+        <a href="http://github.com/koenbok/Cactus">Cactus</a> —
+        <a href="http://getbootstrap.com/">Bootstrap</a> —
+        <a href="http://glyphicons.com/">Glyphicon</a>
+    </small>
+</footer>
+
+    
+
+    <script src="/static/js/vendor/jquery-1.10.1.js"></script>
+    <script src="/static/js/vendor/bootstrap.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+
+
+
+</html>
