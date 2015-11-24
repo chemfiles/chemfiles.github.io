@@ -8,13 +8,8 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <style>
-    body {
-        padding-top: 50px;
-        padding-bottom: 20px;
-    }
-    </style>
     <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/static/css/pygments.css">
     <link rel="stylesheet" href="/static/css/main.css">
     <script src="/static/js/vendor/modernizr-2.6.2.js"></script>
 </head>
@@ -93,7 +88,7 @@
             formats.</p>
         </div>
         <div class="col-lg-4">
-            <img src="/static/images/words.png" alt="Words cloud" class="img-responsive"/>
+            <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
             <h2><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -177,6 +172,200 @@
             and open to your contributions!</p>
 
             <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Gihtub issue</a>.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Usage examples</h2>
+    <p>
+        Here is a small usage example for Chemfiles. More examples can be found in the
+        documentation for each language.
+    </p>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#cxx-example">C++</a></li>
+        <li><a data-toggle="tab" href="#c-example">C</a></li>
+        <li><a data-toggle="tab" href="#fortran-example">Fortran</a></li>
+        <li><a data-toggle="tab" href="#python-example">Python</a></li>
+        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
+        <li><a data-toggle="tab" href="#rust-example">Rust</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="cxx-example" class="tab-pane fade in active">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #BC7A00">#include &lt;iostream&gt;</span>
+<span style="color: #BC7A00">#include &quot;chemfiles.hpp&quot;</span>
+
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    chemfiles<span style="color: #666666">::</span>Trajectory file(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>);
+
+    <span style="color: #008000; font-weight: bold">auto</span> frame <span style="color: #666666">=</span> file.read();
+    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;There are &quot;</span> <span style="color: #666666">&lt;&lt;</span> frame.natoms() <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; atoms in the frame&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+    <span style="color: #008000; font-weight: bold">auto</span> positions <span style="color: #666666">=</span> frame.positions();
+
+    <span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+
+    <span style="color: #008000; font-weight: bold">if</span> (frame.has_velocities()) {
+        <span style="color: #008000; font-weight: bold">auto</span> velocities <span style="color: #666666">=</span> frame.velocities();
+
+        <span style="color: #408080; font-style: italic">// If the file contains information about the</span>
+        <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
+    }
+
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
+</pre></div>
+
+        </div>
+        <div id="c-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #BC7A00">#include &lt;stdio.h&gt;</span>
+<span style="color: #BC7A00">#include &quot;chemfiles.h&quot;</span>
+
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>);
+    CHFL_FRAME<span style="color: #666666">*</span> frame <span style="color: #666666">=</span> chfl_frame(<span style="color: #666666">0</span>);
+
+    <span style="color: #008000; font-weight: bold">if</span> (file <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) {
+        <span style="color: #408080; font-style: italic">// Handle error</span>
+    }
+
+    <span style="color: #008000; font-weight: bold">if</span> (chfl_trajectory_read(file, frame)) {
+        <span style="color: #408080; font-style: italic">// Handle error</span>
+    }
+
+    <span style="color: #B00040">size_t</span> natoms <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    chfl_frame_atoms_count(frame, <span style="color: #666666">&amp;</span>natoms);
+
+    printf(<span style="color: #BA2121">&quot;There are %d atoms in the frame&quot;</span>, natoms);
+
+
+    <span style="color: #B00040">float</span> (<span style="color: #666666">*</span>positions)[<span style="color: #666666">3</span>] <span style="color: #666666">=</span> malloc(natoms<span style="color: #666666">*3*</span><span style="color: #008000; font-weight: bold">sizeof</span>(<span style="color: #B00040">float</span>));
+    chfl_frame_positions(frame, positions, natoms);
+
+    <span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+
+    <span style="color: #B00040">bool</span> has_velocities <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+    chfl_frame_has_velocities(frame, <span style="color: #666666">&amp;</span>has_velocities);
+
+    <span style="color: #008000; font-weight: bold">if</span> (has_velocities) {
+        <span style="color: #B00040">float</span> (<span style="color: #666666">*</span>velocities)[<span style="color: #666666">3</span>] <span style="color: #666666">=</span> malloc(natoms<span style="color: #666666">*3*</span><span style="color: #008000; font-weight: bold">sizeof</span>(<span style="color: #B00040">float</span>));
+        chfl_frame_velocities(frame, velocities, natoms);
+
+        <span style="color: #408080; font-style: italic">// If the file contains information about the</span>
+        <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
+
+        free(velocities);
+    }
+
+    free(positions);
+    <span style="color: #008000; font-weight: bold">return</span> EXIT_SUCCESS;
+}
+</pre></div>
+
+        </div>
+        <div id="fortran-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">program </span>example
+    <span style="color: #008000; font-weight: bold">use </span>chemfiles
+    <span style="color: #008000; font-weight: bold">use </span>iso_fortran_env, only: real32, int64
+    <span style="color: #008000; font-weight: bold">implicit none</span>
+
+<span style="color: #008000; font-weight: bold">    type</span>(chfl_trajectory) <span style="color: #008000; font-weight: bold">::</span> <span style="color: #008000; font-weight: bold">file</span>
+<span style="color: #008000; font-weight: bold">    type</span>(chfl_frame) <span style="color: #008000; font-weight: bold">::</span> frame
+    <span style="color: #B00040">real</span>(<span style="color: #008000">kind</span><span style="color: #666666">=</span>real32), <span style="color: #008000; font-weight: bold">dimension</span>(:, :), <span style="color: #008000; font-weight: bold">allocatable</span> <span style="color: #008000; font-weight: bold">::</span> positions, velocities
+    <span style="color: #B00040">integer</span>(<span style="color: #008000">kind</span><span style="color: #666666">=</span>int64) <span style="color: #008000; font-weight: bold">::</span> natoms<span style="color: #666666">=0</span>
+    <span style="color: #B00040">logical</span> <span style="color: #008000; font-weight: bold">::</span> has_velocities<span style="color: #666666">=</span>.false.
+
+    <span style="color: #008000; font-weight: bold">call file</span>%<span style="color: #008000; font-weight: bold">open</span>(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>, status<span style="color: #666666">=</span>status)
+    <span style="color: #008000; font-weight: bold">if</span> (status <span style="color: #666666">/=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">stop</span>
+
+<span style="color: #008000; font-weight: bold">    call </span>frame%init(<span style="color: #666666">0</span>)
+    <span style="color: #008000; font-weight: bold">call file</span>%<span style="color: #008000; font-weight: bold">read</span>(frame, status<span style="color: #666666">=</span>status)
+    <span style="color: #008000; font-weight: bold">if</span> (status <span style="color: #666666">/=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">stop</span>
+
+<span style="color: #008000; font-weight: bold">    call </span>frame%atoms_count(natoms)
+    <span style="color: #008000; font-weight: bold">write</span>(<span style="color: #666666">*</span>, <span style="color: #666666">*</span>) <span style="color: #BA2121">&quot;There are&quot;</span>, natoms, <span style="color: #BA2121">&quot;atoms in the frame&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">allocate</span>(positions(<span style="color: #666666">3</span>, natoms)
+    <span style="color: #008000; font-weight: bold">call </span>frame%positions(positions, natoms)
+
+    <span style="color: #408080; font-style: italic">! Do awesome science here with the positions</span>
+
+    <span style="color: #008000; font-weight: bold">call </span>frame%has_velocities(has_velocities)
+    <span style="color: #008000; font-weight: bold">if</span> (has_velocities) <span style="color: #008000; font-weight: bold">then</span>
+<span style="color: #008000; font-weight: bold">        allocate</span>(velocities(<span style="color: #666666">3</span>, natoms)
+
+        <span style="color: #008000; font-weight: bold">call </span>frame%velocities(velocities, natoms)
+
+        <span style="color: #408080; font-style: italic">! If the file contains information about the</span>
+        <span style="color: #408080; font-style: italic">! velocities, you will find them here.</span>
+        <span style="color: #008000; font-weight: bold">deallocate</span>(velocities)
+    <span style="color: #008000; font-weight: bold">end if</span>
+
+<span style="color: #008000; font-weight: bold">    deallocate</span>(positions)
+<span style="color: #008000; font-weight: bold">end program</span>
+</pre></div>
+
+        </div>
+        <div id="python-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">chemfiles</span> <span style="color: #008000; font-weight: bold">import</span> Trajectory
+
+<span style="color: #008000">file</span> <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
+frame <span style="color: #666666">=</span> <span style="color: #008000">file</span><span style="color: #666666">.</span>read()
+
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span><span style="color: #666666">.</span>format(frame<span style="color: #666666">.</span>natoms()))
+positions <span style="color: #666666">=</span> frame<span style="color: #666666">.</span>positions()
+
+<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
+
+<span style="color: #008000; font-weight: bold">if</span> frame<span style="color: #666666">.</span>has_velocities():
+    auto velocities <span style="color: #666666">=</span> frame<span style="color: #666666">.</span>velocities()
+    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
+    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
+</pre></div>
+
+        </div>
+        <div id="julia-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">using</span> Chemfiles
+
+file <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
+frame <span style="color: #666666">=</span> read(file)
+
+println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$</span><span style="color: #BA2121">(frame.natoms()) atoms in the frame&quot;</span>)
+pos <span style="color: #666666">=</span> positions(frame);
+
+<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
+
+<span style="color: #008000; font-weight: bold">if</span> has_velocities(frame)
+    vel <span style="color: #666666">=</span> velocities(frame)
+
+    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
+    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
+<span style="color: #008000; font-weight: bold">end</span>
+</pre></div>
+
+        </div>
+        <div id="rust-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">extern</span><span style="color: #bbbbbb"> </span>crate<span style="color: #bbbbbb"> </span>chemfiles;<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span><span style="color: #008000">self</span><span style="color: #666666">::</span>chemfiles<span style="color: #666666">::</span>Trajectory;<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">fn</span><span style="color: #bbbbbb"> </span>main()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>).unwrap();<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read().unwrap();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000">println</span><span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.natoms().unwrap());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>positions<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.positions().unwrap();<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">    </span><span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>frame.has_velocities().unwrap()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>velocities<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.velocities().unwrap();<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// If the file contains information about the</span>
+<span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</pre></div>
+
         </div>
     </div>
 </div>
