@@ -131,4 +131,198 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <h2>Usage examples</h2>
+    <p>
+        Here is a small usage example for Chemfiles. More examples can be found in the
+        documentation for each language.
+    </p>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#cxx-example">C++</a></li>
+        <li><a data-toggle="tab" href="#c-example">C</a></li>
+        <li><a data-toggle="tab" href="#fortran-example">Fortran</a></li>
+        <li><a data-toggle="tab" href="#python-example">Python</a></li>
+        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
+        <li><a data-toggle="tab" href="#rust-example">Rust</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="cxx-example" class="tab-pane fade in active">
+            {% filter highlight:"C++" %}
+                #include <iostream>
+                #include "chemfiles.hpp"
+
+                int main() {
+                    chemfiles::Trajectory file("filename.xyz");
+
+                    auto frame = file.read();
+                    std::cout << "There are " << frame.natoms() << " atoms in the frame" << std::endl;
+                    auto positions = frame.positions();
+
+                    // Do awesome science here with the positions
+
+                    if (frame.has_velocities()) {
+                        auto velocities = frame.velocities();
+
+                        // If the file contains information about the
+                        // velocities, you will find them here.
+                    }
+
+                    return 0;
+                }
+            {% endfilter %}
+        </div>
+        <div id="c-example" class="tab-pane fade">
+            {% filter highlight:"C" %}
+                #include <stdio.h>
+                #include "chemfiles.h"
+
+                int main() {
+                    CHFL_TRAJECTORY* file = chfl_open("filename.xyz", "r");
+                    CHFL_FRAME* frame = chfl_frame(0);
+
+                    if (file == NULL) {
+                        // Handle error
+                    }
+
+                    if (chfl_trajectory_read(file, frame)) {
+                        // Handle error
+                    }
+
+                    size_t natoms = 0;
+                    chfl_frame_atoms_count(frame, &natoms);
+
+                    printf("There are %d atoms in the frame", natoms);
+
+
+                    float (*positions)[3] = malloc(natoms*3*sizeof(float));
+                    chfl_frame_positions(frame, positions, natoms);
+
+                    // Do awesome science here with the positions
+
+                    bool has_velocities = false;
+                    chfl_frame_has_velocities(frame, &has_velocities);
+
+                    if (has_velocities) {
+                        float (*velocities)[3] = malloc(natoms*3*sizeof(float));
+                        chfl_frame_velocities(frame, velocities, natoms);
+
+                        // If the file contains information about the
+                        // velocities, you will find them here.
+
+                        free(velocities);
+                    }
+
+                    free(positions);
+                    return EXIT_SUCCESS;
+                }
+            {% endfilter %}
+        </div>
+        <div id="fortran-example" class="tab-pane fade">
+            {% filter highlight:"Fortran" %}
+                program example
+                    use chemfiles
+                    use iso_fortran_env, only: real32, int64
+                    implicit none
+
+                    type(chfl_trajectory) :: file
+                    type(chfl_frame) :: frame
+                    real(kind=real32), dimension(:, :), allocatable :: positions, velocities
+                    integer(kind=int64) :: natoms=0
+                    logical :: has_velocities=.false.
+
+                    call file%open("filename.xyz", "r", status=status)
+                    if (status /= 0) stop
+
+                    call frame%init(0)
+                    call file%read(frame, status=status)
+                    if (status /= 0) stop
+
+                    call frame%atoms_count(natoms)
+                    write(*, *) "There are", natoms, "atoms in the frame"
+
+                    allocate(positions(3, natoms)
+                    call frame%positions(positions, natoms)
+
+                    ! Do awesome science here with the positions
+
+                    call frame%has_velocities(has_velocities)
+                    if (has_velocities) then
+                        allocate(velocities(3, natoms)
+
+                        call frame%velocities(velocities, natoms)
+
+                        ! If the file contains information about the
+                        ! velocities, you will find them here.
+                        deallocate(velocities)
+                    end if
+
+                    deallocate(positions)
+                end program
+            {% endfilter %}
+        </div>
+        <div id="python-example" class="tab-pane fade">
+            {% filter highlight:"Python" %}
+                from chemfiles import Trajectory
+
+                file = Trajectory("filename.xyz")
+                frame = file.read()
+
+                print("There are {} atoms in the frame".format(frame.natoms()))
+                positions = frame.positions()
+
+                # Do awesome science here with the positions
+
+                if frame.has_velocities():
+                    auto velocities = frame.velocities()
+                    # If the file contains information about the
+                    # velocities, you will find them here.
+            {% endfilter %}
+        </div>
+        <div id="julia-example" class="tab-pane fade">
+            {% filter highlight:"Julia" %}
+                using Chemfiles
+
+                file = Trajectory("filename.xyz")
+                frame = read(file)
+
+                println("There are $(frame.natoms()) atoms in the frame")
+                pos = positions(frame);
+
+                # Do awesome science here with the positions
+
+                if has_velocities(frame)
+                    vel = velocities(frame)
+
+                    # If the file contains information about the
+                    # velocities, you will find them here.
+                end
+            {% endfilter %}
+        </div>
+        <div id="rust-example" class="tab-pane fade">
+            {% filter highlight:"Rust" %}
+                extern crate chemfiles;
+                use self::chemfiles::Trajectory;
+
+                fn main() {
+                    let file = Trajectory("filename.xyz", "r").unwrap();
+
+                    let frame = file.read().unwrap();
+                    println!("There are {} atoms in the frame",  frame.natoms().unwrap());
+                    let positions = frame.positions().unwrap();
+
+                    // Do awesome science here with the positions
+
+                    if frame.has_velocities().unwrap() {
+                        let velocities = frame.velocities().unwrap();
+
+                        // If the file contains information about the
+                        // velocities, you will find them here.
+                    }
+                }
+            {% endfilter %}
+        </div>
+    </div>
+</div>
 {% endblock %}

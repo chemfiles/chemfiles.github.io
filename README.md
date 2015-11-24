@@ -1,10 +1,10 @@
 # Chemfiles website
 
 This website use [cactus](https://github.com/koenbok/Cactus) as static website generator.
-To build it locally, you have to install cactus:
+To build it locally, you have to install the dependencies:
 
 ```
-pip install cactus
+pip install cactus pygments
 ```
 
 And then start the local server:

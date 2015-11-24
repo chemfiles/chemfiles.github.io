@@ -14,7 +14,7 @@ script:
     - rm -rf static
     - rm -f *.html
     - rm -f sitemap.xml robots.txt
-    - pip install cactus
+    - pip install cactus pygments
     - cd src
     - cactus build
     - cd ..
