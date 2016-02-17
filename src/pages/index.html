@@ -116,7 +116,7 @@
 
             <p>It does not provide analysis code, but if you are insterested you can find
             implementation of some simple algorithms in a ready-to-use command line program
-            using Chemfiles at the <a href="https://github.com/chemfiles/chrp">chrp</a>
+            using Chemfiles at the <a href="https://github.com/chemfiles/cfiles">cfiles</a>
             repository.</p>
         </div>
         <div class="col-lg-4">
@@ -162,8 +162,8 @@
 
                     // Do awesome science here with the positions
 
-                    if (frame.has_velocities()) {
-                        auto velocities = frame.velocities();
+                    if (frame.velocities()) {
+                        auto velocities = *frame.velocities();
 
                         // If the file contains information about the
                         // velocities, you will find them here.
@@ -191,13 +191,10 @@
                     }
 
                     size_t natoms = 0;
-                    chfl_frame_atoms_count(frame, &natoms);
+                    float (*positions)[3] = NULL;
+                    chfl_frame_positions(frame, &positions, &natoms);
 
                     printf("There are %d atoms in the frame", natoms);
-
-
-                    float (*positions)[3] = malloc(natoms*3*sizeof(float));
-                    chfl_frame_positions(frame, positions, natoms);
 
                     // Do awesome science here with the positions
 
@@ -205,16 +202,12 @@
                     chfl_frame_has_velocities(frame, &has_velocities);
 
                     if (has_velocities) {
-                        float (*velocities)[3] = malloc(natoms*3*sizeof(float));
-                        chfl_frame_velocities(frame, velocities, natoms);
+                        float (*velocities)[3] = NULL;
+                        chfl_frame_velocities(frame, &velocities, &natoms);
 
                         // If the file contains information about the
                         // velocities, you will find them here.
-
-                        free(velocities);
                     }
-
-                    free(positions);
                     return EXIT_SUCCESS;
                 }
             {% endfilter %}
@@ -228,9 +221,9 @@
 
                     type(chfl_trajectory) :: file
                     type(chfl_frame) :: frame
-                    real(kind=real32), dimension(:, :), allocatable :: positions, velocities
-                    integer(kind=int64) :: natoms=0
-                    logical :: has_velocities=.false.
+                    real(real32), dimension(:, :), pointer :: positions, velocities
+                    integer(int64) :: natoms = 0
+                    logical :: has_velocities = .false.
 
                     call file%open("filename.xyz", "r", status=status)
                     if (status /= 0) stop
@@ -239,26 +232,18 @@
                     call file%read(frame, status=status)
                     if (status /= 0) stop
 
-                    call frame%atoms_count(natoms)
-                    write(*, *) "There are", natoms, "atoms in the frame"
-
-                    allocate(positions(3, natoms)
                     call frame%positions(positions, natoms)
+                    write(*, *) "There are", natoms, "atoms in the frame"
 
                     ! Do awesome science here with the positions
 
                     call frame%has_velocities(has_velocities)
                     if (has_velocities) then
-                        allocate(velocities(3, natoms)
-
                         call frame%velocities(velocities, natoms)
 
                         ! If the file contains information about the
                         ! velocities, you will find them here.
-                        deallocate(velocities)
                     end if
-
-                    deallocate(positions)
                 end program
             {% endfilter %}
         </div>
