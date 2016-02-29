@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/octicons.css">
     <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
     <link rel="stylesheet" href="/static/css/pygments.css">
     <link rel="stylesheet" href="/static/css/main.css">
@@ -52,22 +53,21 @@
         <img src="/static/images/chemfiles.png" alt="Chemfiles logo" class="img-responsive pull-right"/>
 
         <h1>Chemfiles</h1>
-        <h2>An efficient library for reading and writing chemistry files</h2>
-        <br />
-        <p>Write code once, use it for any file format! Chemfiles provides a unified
-        interface for accessing and writing data in computational chemistry files
-        (trajectories, configurations and topologies).</p>
+        <h2>A library for reading and writing trajectory files</h2>
+        <p>Chemfiles provides a <strong>simple</strong> and <strong>unified</strong>
+            interface for reading and writing computational chemistry
+            files: trajectories, configurations, and topologies.</p>
 
         <div class="input-group-btn text-center">
             <a href="http://github.com/chemfiles/chemfiles/releases/">
                 <button class="btn-success" type="button" name="Download">
-                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                    <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
                     Download
                 </button>
             </a>
             <a href="http://chemfiles.readthedocs.org/">
                 <button class="btn-primary" type="button" name="Documentation">
-                    <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                    <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
                     Documentation
                 </button>
             </a>
@@ -78,7 +78,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            <h2><span class="mega-octicon octicon-file-code" aria-hidden="true"></span>
                 Format agnostic
             </h2>
             <p>Chemfiles provides a unique interface for all supported file formats. Read
@@ -91,7 +91,7 @@
             <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
-            <h2><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <h2><span class="mega-octicon octicon-check" aria-hidden="true"></span>
                 Easy to use
             </h2>
 
@@ -103,7 +103,7 @@
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            <h2><span class="mega-octicon octicon-globe" aria-hidden="true"></span>
                 Multiple languages
             </h2>
             <p>Chemfiles is written in C++, but you can use it with all the major
@@ -111,19 +111,19 @@
 
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/chemfiles" title="C++">
+                    <a href="http://chemfiles.readthedocs.org/" title="C++">
                         <img src="/static/images/logo-cxx.png" alt="C++ logo"/>
                     </a>
                     <p>C++</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/chemfiles" title="C">
+                    <a href="http://chemfiles.readthedocs.org/en/latest/c-api.html" title="C">
                         <img src="/static/images/logo-c.png" alt="C logo"/>
                     </a>
                     <p>C</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/chemfiles.f03" title="Fortran">
+                    <a href="http://chemfiles.readthedocs.org/projects/fortran/en/latest/" title="Fortran">
                         <img src="/static/images/logo-fortran.png" alt="Fortran logo" />
                     </a>
                     <p>Fortran</p>
@@ -131,19 +131,19 @@
             </div>
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/chemfiles.py" title="Python">
+                    <a href="http://chemfiles.readthedocs.org/projects/python/en/latest/" title="Python">
                         <img src="/static/images/logo-python.png" alt="Python logo" />
                     </a>
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/Chemfiles.jl" title="Julia">
+                    <a href="http://chemfiles.readthedocs.org/projects/julia/en/latest/" title="Julia">
                         <img src="/static/images/logo-julia.png" alt="Julia logo" />
                     </a>
                     <p>Julia</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="http://github.com/chemfiles/chemfiles.rs" title="Rust">
+                    <a href="http://chemfiles.github.io/chemfiles.rs/chemfiles" title="Rust">
                         <img src="/static/images/logo-rust.png" alt="Rust logo" />
                     </a>
                     <p>Rust</p>
@@ -151,20 +151,20 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                Who is it for?
+            <h2><span class="mega-octicon octicon-gear" aria-hidden="true"></span>
+                Principal features
             </h2>
-
-            <p>Chemfiles is a software library built for scientists who write their own
-            analysis or simulation code.</p>
-
-            <p>It does not provide analysis code, but if you are insterested you can find
-            implementation of some simple algorithms in a ready-to-use command line program
-            using Chemfiles at the <a href="https://github.com/chemfiles/cfiles">cfiles</a>
-            repository.</p>
+            <ul>
+                <li>VMD style atom selection language;</li>
+                <li>Automatic file type recognition;</li>
+                <li>Support a varying number of atoms;</li>
+                <li>Orthorombic and tricliclinic periodic boundary conditions;</li>
+                <li>Use a custom unit cell or topology at runtime;</li>
+                <li>And <a href="http://chemfiles.readthedocs.org/">others</a> ...</li>
+            </ul>
         </div>
         <div class="col-lg-4">
-            <h2><img src="/static/images/github.png" alt="Github icon"/>
+            <h2><span class="mega-octicon octicon-mark-github" aria-hidden="true"></span>
                 Open-source
             </h2>
             <p>Chemfiles is open-source under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-v2</a>
@@ -366,7 +366,7 @@ pos <span style="color: #666666">=</span> positions(frame);
         <a href="http://github.com/chemfiles/chemfiles.github.io">Website</a> built with
         <a href="http://github.com/koenbok/Cactus">Cactus</a> —
         <a href="http://getbootstrap.com/">Bootstrap</a> —
-        <a href="http://glyphicons.com/">Glyphicon</a>
+        <a href="https://octicons.github.com/">Octicons</a>
     </small>
 </footer>
 
