@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} — Documentation{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Main documentation (C++)</h1>
+            <p>Select the version of the documentation you want</p>
+            <ul>
+                <li><a href="latest/index.html">Latest developement version</a></li>
+                <li><a href="0.6.0/index.html">0.6.0</a></li>
+                <li><a href="0.5.0/index.html">0.5.0</a></li>
+                <li><a href="0.4.0/index.html">0.4.0</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+            <h1>Other languages</h1>
+            <ul>
+                <li><a href="latest/capi/index.html">C</a></li>
+                <li><a href="http://chemfiles.readthedocs.org/projects/fortran/en/latest/">Fortran</a></li>
+                <li><a href="http://chemfiles.readthedocs.org/projects/python/en/latest/">Python</a></li>
+                <li><a href="http://chemfiles.readthedocs.org/projects/julia/en/latest/">Julia</a></li>
+                <li><a href="http://chemfiles.github.io/chemfiles.rs/chemfiles/">Rust</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
