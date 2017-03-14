@@ -319,7 +319,7 @@ positions <span style="color: #666666">=</span> frame<span style="color: #666666
 file <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
 frame <span style="color: #666666">=</span> read(file)
 
-println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$(frame.natoms())</span><span style="color: #BA2121"> atoms in the frame&quot;</span>)
+println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$</span>(frame<span style="color: #666666">.</span>natoms())<span style="color: #BA2121"> atoms in the frame&quot;</span>)
 pos <span style="color: #666666">=</span> positions(frame);
 
 <span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
@@ -335,9 +335,9 @@ pos <span style="color: #666666">=</span> positions(frame);
         </div>
         <div id="rust-example" class="tab-pane fade">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">extern</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">crate</span><span style="color: #bbbbbb"> </span>chemfiles;<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span><span style="color: #008000">self</span><span style="color: #666666">::</span>chemfiles<span style="color: #666666">::</span>Trajectory;<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span><span style="color: #008000">self</span>::chemfiles::Trajectory;<span style="color: #bbbbbb"></span>
 
-<span style="color: #008000; font-weight: bold">fn</span><span style="color: #bbbbbb"> </span>main()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">fn</span> <span style="color: #0000FF">main</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>).unwrap();<span style="color: #bbbbbb"></span>
 
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read().unwrap();<span style="color: #bbbbbb"></span>
