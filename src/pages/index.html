@@ -4,7 +4,11 @@
 {% block body %}
 <div class="jumbotron">
     <div class="container">
-        <img src="{% static '/static/images/chemfiles.png' %}" alt="Chemfiles logo" class="img-responsive pull-right"/>
+        <img
+            src="{% static '/static/images/chemfiles.svg' %}"
+            alt="Chemfiles logo" class="img-responsive pull-right"
+            id="chemfiles-logo"
+        />
 
         <h1>Chemfiles</h1>
         <h2>A library for reading and writing trajectory files</h2>
