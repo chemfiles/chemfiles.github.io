@@ -33,3 +33,16 @@ html, body {
 .images-table {
     padding: 5px;
 }
+
+.flat-btn {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 6px;
+    font-size: 16.5px;
+    padding: 12px 20px;
+    border: 0;
+    /*background: #34495E;*/
+    color: #FFF;
+    cursor: pointer;
+    outline: 0;
+}
