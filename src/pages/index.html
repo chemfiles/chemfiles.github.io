@@ -15,20 +15,28 @@
         <p>Chemfiles provides a <strong>simple</strong> and <strong>unified</strong>
             interface for reading and writing computational chemistry
             files: trajectories, configurations, and topologies.</p>
-        <br/>
-        <div class="input-group-btn text-center">
-            <a href="http://github.com/chemfiles/chemfiles/releases/">
-                <button class="btn-success flat-btn" type="button" name="Download">
-                    <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
-                    Download
-                </button>
-            </a>
-            <a href="chemfiles/index.html">
-                <button class="btn-primary flat-btn" type="button" name="Documentation">
-                    <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
-                    Documentation
-                </button>
-            </a>
+        <div class="container">
+            <br/>
+            <div class="row input-group-btn text-center">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3">
+                    <a href="http://github.com/chemfiles/chemfiles/releases/">
+                        <button class="btn-success flat-btn" type="button" name="Download">
+                            <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
+                            Download
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="chemfiles/index.html">
+                        <button class="btn-primary flat-btn" type="button" name="Documentation">
+                            <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
+                            Documentation
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -95,16 +103,16 @@
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="Chemfiles.jl/latest/index.html" title="Julia">
-                        <img src="{% static '/static/images/logo-julia.png' %}" alt="Julia logo" />
-                    </a>
-                    <p>Julia</p>
-                </div>
-                <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
                         <img src="{% static '/static/images/logo-rust.png' %}" alt="Rust logo" />
                     </a>
                     <p>Rust</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="Chemfiles.jl/latest/index.html" title="Julia">
+                        <img src="{% static '/static/images/logo-julia.png' %}" alt="Julia logo" />
+                    </a>
+                    <p>Julia</p>
                 </div>
             </div>
         </div>
@@ -146,14 +154,14 @@
         <li><a data-toggle="tab" href="#c-example">C</a></li>
         <li><a data-toggle="tab" href="#fortran-example">Fortran</a></li>
         <li><a data-toggle="tab" href="#python-example">Python</a></li>
-        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
         <li><a data-toggle="tab" href="#rust-example">Rust</a></li>
+        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
     </ul>
     <div class="tab-content">
         <div id="cxx-example" class="tab-pane fade in active">
             {% filter highlight:"C++" %}
                 #include <iostream>
-                #include "chemfiles.hpp"
+                #include <chemfiles.hpp>
 
                 int main() {
                     chemfiles::Trajectory file("filename.xyz");
@@ -178,7 +186,7 @@
         <div id="c-example" class="tab-pane fade">
             {% filter highlight:"C" %}
                 #include <stdio.h>
-                #include "chemfiles.h"
+                #include <chemfiles.h>
 
                 int main() {
                     CHFL_TRAJECTORY* file = chfl_open("filename.xyz", "r");
@@ -267,26 +275,6 @@
                     # velocities, you will find them here.
             {% endfilter %}
         </div>
-        <div id="julia-example" class="tab-pane fade">
-            {% filter highlight:"Julia" %}
-                using Chemfiles
-
-                file = Trajectory("filename.xyz")
-                frame = read(file)
-
-                println("There are $(frame.natoms()) atoms in the frame")
-                pos = positions(frame);
-
-                # Do awesome science here with the positions
-
-                if has_velocities(frame)
-                    vel = velocities(frame)
-
-                    # If the file contains information about the
-                    # velocities, you will find them here.
-                end
-            {% endfilter %}
-        </div>
         <div id="rust-example" class="tab-pane fade">
             {% filter highlight:"Rust" %}
                 extern crate chemfiles;
@@ -308,6 +296,26 @@
                         // velocities, you will find them here.
                     }
                 }
+            {% endfilter %}
+        </div>
+        <div id="julia-example" class="tab-pane fade">
+            {% filter highlight:"Julia" %}
+                using Chemfiles
+
+                file = Trajectory("filename.xyz")
+                frame = read(file)
+
+                println("There are $(frame.natoms()) atoms in the frame")
+                pos = positions(frame);
+
+                # Do awesome science here with the positions
+
+                if has_velocities(frame)
+                    vel = velocities(frame)
+
+                    # If the file contains information about the
+                    # velocities, you will find them here.
+                end
             {% endfilter %}
         </div>
     </div>
