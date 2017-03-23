@@ -7,6 +7,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/octicons.css">
     <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
@@ -54,27 +61,39 @@
             
 <div class="jumbotron">
     <div class="container">
-        <img src="/static/images/chemfiles.png" alt="Chemfiles logo" class="img-responsive pull-right"/>
+        <img
+            src="/static/images/chemfiles.svg"
+            alt="Chemfiles logo" class="img-responsive pull-right"
+            id="chemfiles-logo"
+        />
 
         <h1>Chemfiles</h1>
         <h2>A library for reading and writing trajectory files</h2>
         <p>Chemfiles provides a <strong>simple</strong> and <strong>unified</strong>
             interface for reading and writing computational chemistry
             files: trajectories, configurations, and topologies.</p>
-
-        <div class="input-group-btn text-center">
-            <a href="http://github.com/chemfiles/chemfiles/releases/">
-                <button class="btn-success" type="button" name="Download">
-                    <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
-                    Download
-                </button>
-            </a>
-            <a href="chemfiles/index.html">
-                <button class="btn-primary" type="button" name="Documentation">
-                    <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
-                    Documentation
-                </button>
-            </a>
+        <div class="container">
+            <br/>
+            <div class="row input-group-btn text-center">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3">
+                    <a href="http://github.com/chemfiles/chemfiles/releases/">
+                        <button class="btn-success flat-btn" type="button" name="Download">
+                            <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
+                            Download
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="chemfiles/index.html">
+                        <button class="btn-primary flat-btn" type="button" name="Documentation">
+                            <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
+                            Documentation
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -141,16 +160,16 @@
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
-                    <a href="Chemfiles.jl/latest/index.html" title="Julia">
-                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
-                    </a>
-                    <p>Julia</p>
-                </div>
-                <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
                         <img src="/static/images/logo-rust.png" alt="Rust logo" />
                     </a>
                     <p>Rust</p>
+                </div>
+                <div class="col-xs-4 text-center images-table">
+                    <a href="Chemfiles.jl/latest/index.html" title="Julia">
+                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
+                    </a>
+                    <p>Julia</p>
                 </div>
             </div>
         </div>
@@ -192,13 +211,13 @@
         <li><a data-toggle="tab" href="#c-example">C</a></li>
         <li><a data-toggle="tab" href="#fortran-example">Fortran</a></li>
         <li><a data-toggle="tab" href="#python-example">Python</a></li>
-        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
         <li><a data-toggle="tab" href="#rust-example">Rust</a></li>
+        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
     </ul>
     <div class="tab-content">
         <div id="cxx-example" class="tab-pane fade in active">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&quot;chemfiles.hpp&quot;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;chemfiles.hpp&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
     chemfiles<span style="color: #666666">::</span>Trajectory file(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>);
@@ -223,7 +242,7 @@
         </div>
         <div id="c-example" class="tab-pane fade">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdio.h&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&quot;chemfiles.h&quot;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;chemfiles.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
     CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>);
@@ -313,26 +332,6 @@ positions <span style="color: #666666">=</span> frame<span style="color: #666666
 </pre></div>
 
         </div>
-        <div id="julia-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">using</span> Chemfiles
-
-file <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
-frame <span style="color: #666666">=</span> read(file)
-
-println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$</span>(frame<span style="color: #666666">.</span>natoms())<span style="color: #BA2121"> atoms in the frame&quot;</span>)
-pos <span style="color: #666666">=</span> positions(frame);
-
-<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
-
-<span style="color: #008000; font-weight: bold">if</span> has_velocities(frame)
-    vel <span style="color: #666666">=</span> velocities(frame)
-
-    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
-    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
-<span style="color: #008000; font-weight: bold">end</span>
-</pre></div>
-
-        </div>
         <div id="rust-example" class="tab-pane fade">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">extern</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">crate</span><span style="color: #bbbbbb"> </span>chemfiles;<span style="color: #bbbbbb"></span>
 <span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span><span style="color: #008000">self</span>::chemfiles::Trajectory;<span style="color: #bbbbbb"></span>
@@ -353,6 +352,26 @@ pos <span style="color: #666666">=</span> positions(frame);
 <span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
 <span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 }<span style="color: #bbbbbb"></span>
+</pre></div>
+
+        </div>
+        <div id="julia-example" class="tab-pane fade">
+            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">using</span> Chemfiles
+
+file <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
+frame <span style="color: #666666">=</span> read(file)
+
+println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$</span>(frame<span style="color: #666666">.</span>natoms())<span style="color: #BA2121"> atoms in the frame&quot;</span>)
+pos <span style="color: #666666">=</span> positions(frame);
+
+<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
+
+<span style="color: #008000; font-weight: bold">if</span> has_velocities(frame)
+    vel <span style="color: #666666">=</span> velocities(frame)
+
+    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
+    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
+<span style="color: #008000; font-weight: bold">end</span>
 </pre></div>
 
         </div>
