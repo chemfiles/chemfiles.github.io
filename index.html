@@ -35,18 +35,22 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-header">Main documentation (C++)</li>
-                    <li><a href="chemfiles/latest/index.html">Latest</a></li>
-                    <li><a href="chemfiles/0.6.0/index.html">0.6.0</a></li>
-                    <li><a href="chemfiles/0.5.0/index.html">0.5.0</a></li>
-                    <li><a href="chemfiles/0.4.0/index.html">0.4.0</a></li>
+                    <li class="dropdown-header">C++ and C</li>
+                    <li><a href="/chemfiles/latest/index.html">Latest</a></li>
+                    <li><a href="/chemfiles/0.7.4/index.html">Stable (0.7.4)</a></li>
                     <li class="divider"></li>
-                    <li class="dropdown-header">Other languages</li>
-                    <li><a href="chemfiles/latest/capi/index.html">C</a></li>
-                    <li><a href="http://chemfiles.readthedocs.org/projects/fortran/en/latest/">Fortran</a></li>
-                    <li><a href="http://chemfiles.readthedocs.org/projects/python/en/latest/">Python</a></li>
-                    <li><a href="http://chemfiles.readthedocs.org/projects/julia/en/latest/">Julia</a></li>
-                    <li><a href="http://chemfiles.github.io/chemfiles.rs/chemfiles/">Rust</a></li>
+                    <li class="dropdown-header">Python</li>
+                    <li><a href="/chemfiles.py/latest/">Latest</a></li>
+                    <li><a href="/chemfiles.py/0.7.4/">Stable (0.7.4)</a></li>
+                    <li class="dropdown-header">Fortran</li>
+                    <li><a href="/chemfiles.f03/latest/">Latest</a></li>
+                    <li><a href="/chemfiles.f03/0.7.4/">Stable (0.7.4)</a></li>
+                    <li class="dropdown-header">Julia</li>
+                    <li><a href="/Chemfiles.jl/latest/">Latest</a></li>
+                    <li><a href="/Chemfiles.jl/v0.7.4/">Stable (0.7.4)</a></li>
+                    <li class="dropdown-header">Rust</li>
+                    <li><a href="/chemfiles.rs/latest/chemfiles/">Latest</a></li>
+                    <li><a href="/chemfiles.rs/0.7.4/chemfiles/">Stable (0.7.40)</a></li>
                 </ul>
             </li>
         </ul>
@@ -59,6 +63,8 @@
     <div id="wrap">
         <div id="main">
             
+<div class="vspace-3"></div>
+
 <div class="jumbotron">
     <div class="container">
         <img
@@ -85,7 +91,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="chemfiles/index.html">
+                    <a href="documentation.html">
                         <button class="btn-primary flat-btn" type="button" name="Documentation">
                             <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
                             Documentation
@@ -97,7 +103,7 @@
         </div>
     </div>
 </div>
-
+<div class="vspace-4"></div>
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -178,27 +184,29 @@
                 Principal features
             </h2>
             <ul>
-                <li>VMD style atom selection language;</li>
+                <li>Powerfull atom selection language;</li>
                 <li>Automatic file type recognition;</li>
-                <li>Support a varying number of atoms;</li>
+                <li>Support non-constant number of atoms;</li>
                 <li>Orthorombic and tricliclinic periodic boundary conditions;</li>
                 <li>Use a custom unit cell or topology at runtime;</li>
-                <li>And <a href="chemfiles/latest">others</a> ...</li>
+                <li>And <a href="chemfiles/latest"> many others</a> ...</li>
             </ul>
         </div>
         <div class="col-lg-4">
             <h2><span class="mega-octicon octicon-mark-github" aria-hidden="true"></span>
                 Open-source
             </h2>
-            <p>Chemfiles is open-source under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-v2</a>
-            licence, hosted on <a href="http://github.com/chemfiles/chemfiles">Github</a>,
-            and open to your contributions!</p>
+            <p>Chemfiles is open-source under the 3 clauses BSD licence, hosted
+            on <a href="http://github.com/chemfiles/chemfiles">Github</a>, and
+            open to your contributions!</p>
 
-            <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Github issue</a>.</p>
+            <p>Please report any bug or feature request as a <a
+            href="http://github.com/chemfiles/chemfiles/issues">Github
+            issue</a>.</p>
         </div>
     </div>
 </div>
-
+<div class="vspace-4"></div>
 <div class="container">
     <h2>Usage examples</h2>
     <p>
@@ -246,18 +254,12 @@
 
 <span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
     CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>);
-    CHFL_FRAME<span style="color: #666666">*</span> frame <span style="color: #666666">=</span> chfl_frame(<span style="color: #666666">0</span>);
+    CHFL_FRAME<span style="color: #666666">*</span> frame <span style="color: #666666">=</span> chfl_frame();
 
-    <span style="color: #008000; font-weight: bold">if</span> (file <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) {
-        <span style="color: #408080; font-style: italic">// Handle error</span>
-    }
+    chfl_trajectory_read(file, frame);
 
-    <span style="color: #008000; font-weight: bold">if</span> (chfl_trajectory_read(file, frame)) {
-        <span style="color: #408080; font-style: italic">// Handle error</span>
-    }
-
-    <span style="color: #B00040">size_t</span> natoms <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    <span style="color: #B00040">float</span> (<span style="color: #666666">*</span>positions)[<span style="color: #666666">3</span>] <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+    <span style="color: #B00040">uint64_t</span> natoms <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    chfl_vector3d<span style="color: #666666">*</span> positions <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
     chfl_frame_positions(frame, <span style="color: #666666">&amp;</span>positions, <span style="color: #666666">&amp;</span>natoms);
 
     printf(<span style="color: #BA2121">&quot;There are %d atoms in the frame&quot;</span>, natoms);
@@ -267,13 +269,14 @@
     <span style="color: #B00040">bool</span> has_velocities <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
     chfl_frame_has_velocities(frame, <span style="color: #666666">&amp;</span>has_velocities);
 
-    <span style="color: #008000; font-weight: bold">if</span> (has_velocities) {
-        <span style="color: #B00040">float</span> (<span style="color: #666666">*</span>velocities)[<span style="color: #666666">3</span>] <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (velocities) {
+        chfl_vector3d<span style="color: #666666">*</span> velocities <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
         chfl_frame_velocities(frame, <span style="color: #666666">&amp;</span>velocities, <span style="color: #666666">&amp;</span>natoms);
 
         <span style="color: #408080; font-style: italic">// If the file contains information about the</span>
         <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
     }
+
     <span style="color: #008000; font-weight: bold">return</span> EXIT_SUCCESS;
 }
 </pre></div>
@@ -282,12 +285,12 @@
         <div id="fortran-example" class="tab-pane fade">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">program </span>example
     <span style="color: #008000; font-weight: bold">use </span>chemfiles
-    <span style="color: #008000; font-weight: bold">use </span>iso_fortran_env, only: real32, int64
+    <span style="color: #008000; font-weight: bold">use </span>iso_fortran_env, only: real64, int64
     <span style="color: #008000; font-weight: bold">implicit none</span>
 
 <span style="color: #008000; font-weight: bold">    type</span>(chfl_trajectory) <span style="color: #008000; font-weight: bold">::</span> <span style="color: #008000; font-weight: bold">file</span>
 <span style="color: #008000; font-weight: bold">    type</span>(chfl_frame) <span style="color: #008000; font-weight: bold">::</span> frame
-    <span style="color: #B00040">real</span>(real32), <span style="color: #008000; font-weight: bold">dimension</span>(:, :), <span style="color: #008000; font-weight: bold">pointer</span> <span style="color: #008000; font-weight: bold">::</span> positions, velocities
+    <span style="color: #B00040">real</span>(real64), <span style="color: #008000; font-weight: bold">dimension</span>(:, :), <span style="color: #008000; font-weight: bold">pointer</span> <span style="color: #008000; font-weight: bold">::</span> positions, velocities
     <span style="color: #B00040">integer</span>(int64) <span style="color: #008000; font-weight: bold">::</span> natoms <span style="color: #666666">=</span> <span style="color: #666666">0</span>
     <span style="color: #B00040">logical</span> <span style="color: #008000; font-weight: bold">::</span> has_velocities <span style="color: #666666">=</span> .false.
 
@@ -337,16 +340,16 @@ positions <span style="color: #666666">=</span> frame<span style="color: #666666
 <span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span><span style="color: #008000">self</span>::chemfiles::Trajectory;<span style="color: #bbbbbb"></span>
 
 <span style="color: #008000; font-weight: bold">fn</span> <span style="color: #0000FF">main</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>).unwrap();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>)<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read().unwrap();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>println<span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.natoms().unwrap());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>positions<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.positions().unwrap();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read()<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>println<span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.natoms()<span style="color: #666666">?</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>positions<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.positions()<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
 
 <span style="color: #bbbbbb">    </span><span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>frame.has_velocities().unwrap()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>velocities<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.velocities().unwrap();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>frame.has_velocities()<span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>velocities<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.velocities()<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
 
 <span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// If the file contains information about the</span>
 <span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
@@ -384,7 +387,7 @@ pos <span style="color: #666666">=</span> positions(frame);
     
         <footer class="footer">
     <p>Chemfiles (C) 2014-2017 <a href="https://guillaume.fraux.fr/">Guillaume Fraux</a>
-    — distributed under the MPL-v2 licence —
+    — distributed under the BSD licence —
     twitter: <a href="https://twitter.com/libchemfiles">@libchemfiles</a>
     </p>
     <small>
