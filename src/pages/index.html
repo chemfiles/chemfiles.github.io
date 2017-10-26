@@ -2,6 +2,8 @@
 {% block title %} — An efficient chemistry IO library{% endblock %}
 
 {% block body %}
+<div class="vspace-3"></div>
+
 <div class="jumbotron">
     <div class="container">
         <img
@@ -40,7 +42,7 @@
         </div>
     </div>
 </div>
-
+<div class="vspace-4"></div>
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -121,27 +123,29 @@
                 Principal features
             </h2>
             <ul>
-                <li>VMD style atom selection language;</li>
+                <li>Powerfull atom selection language;</li>
                 <li>Automatic file type recognition;</li>
-                <li>Support a varying number of atoms;</li>
+                <li>Support non-constant number of atoms;</li>
                 <li>Orthorombic and tricliclinic periodic boundary conditions;</li>
                 <li>Use a custom unit cell or topology at runtime;</li>
-                <li>And <a href="chemfiles/latest">others</a> ...</li>
+                <li>And <a href="chemfiles/latest"> many others</a> ...</li>
             </ul>
         </div>
         <div class="col-lg-4">
             <h2><span class="mega-octicon octicon-mark-github" aria-hidden="true"></span>
                 Open-source
             </h2>
-            <p>Chemfiles is open-source under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-v2</a>
-            licence, hosted on <a href="http://github.com/chemfiles/chemfiles">Github</a>,
-            and open to your contributions!</p>
+            <p>Chemfiles is open-source under the 3 clauses BSD licence, hosted
+            on <a href="http://github.com/chemfiles/chemfiles">Github</a>, and
+            open to your contributions!</p>
 
-            <p>Please report any bug or feature request as a <a href="http://github.com/chemfiles/chemfiles/issues">Github issue</a>.</p>
+            <p>Please report any bug or feature request as a <a
+            href="http://github.com/chemfiles/chemfiles/issues">Github
+            issue</a>.</p>
         </div>
     </div>
 </div>
-
+<div class="vspace-4"></div>
 <div class="container">
     <h2>Usage examples</h2>
     <p>
@@ -190,18 +194,12 @@
 
                 int main() {
                     CHFL_TRAJECTORY* file = chfl_open("filename.xyz", "r");
-                    CHFL_FRAME* frame = chfl_frame(0);
+                    CHFL_FRAME* frame = chfl_frame();
 
-                    if (file == NULL) {
-                        // Handle error
-                    }
+                    chfl_trajectory_read(file, frame);
 
-                    if (chfl_trajectory_read(file, frame)) {
-                        // Handle error
-                    }
-
-                    size_t natoms = 0;
-                    float (*positions)[3] = NULL;
+                    uint64_t natoms = 0;
+                    chfl_vector3d* positions = NULL;
                     chfl_frame_positions(frame, &positions, &natoms);
 
                     printf("There are %d atoms in the frame", natoms);
@@ -211,13 +209,14 @@
                     bool has_velocities = false;
                     chfl_frame_has_velocities(frame, &has_velocities);
 
-                    if (has_velocities) {
-                        float (*velocities)[3] = NULL;
+                    if (velocities) {
+                        chfl_vector3d* velocities = NULL;
                         chfl_frame_velocities(frame, &velocities, &natoms);
 
                         // If the file contains information about the
                         // velocities, you will find them here.
                     }
+
                     return EXIT_SUCCESS;
                 }
             {% endfilter %}
@@ -226,12 +225,12 @@
             {% filter highlight:"Fortran" %}
                 program example
                     use chemfiles
-                    use iso_fortran_env, only: real32, int64
+                    use iso_fortran_env, only: real64, int64
                     implicit none
 
                     type(chfl_trajectory) :: file
                     type(chfl_frame) :: frame
-                    real(real32), dimension(:, :), pointer :: positions, velocities
+                    real(real64), dimension(:, :), pointer :: positions, velocities
                     integer(int64) :: natoms = 0
                     logical :: has_velocities = .false.
 
@@ -281,16 +280,16 @@
                 use self::chemfiles::Trajectory;
 
                 fn main() {
-                    let file = Trajectory("filename.xyz", "r").unwrap();
+                    let file = Trajectory("filename.xyz", "r")?;
 
-                    let frame = file.read().unwrap();
-                    println!("There are {} atoms in the frame",  frame.natoms().unwrap());
-                    let positions = frame.positions().unwrap();
+                    let frame = file.read()?;
+                    println!("There are {} atoms in the frame",  frame.natoms()?);
+                    let positions = frame.positions()?;
 
                     // Do awesome science here with the positions
 
-                    if frame.has_velocities().unwrap() {
-                        let velocities = frame.velocities().unwrap();
+                    if frame.has_velocities()? {
+                        let velocities = frame.velocities()?;
 
                         // If the file contains information about the
                         // velocities, you will find them here.

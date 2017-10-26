@@ -50,3 +50,23 @@ html, body {
     cursor: pointer;
     outline: 0;
 }
+
+.vspace-1 {
+    min-height: 1em;
+}
+
+.vspace-2 {
+    min-height: 2em;
+}
+
+.vspace-3 {
+    min-height: 3em;
+}
+
+.vspace-4 {
+    min-height: 4em;
+}
+
+.vspace-5 {
+    min-height: 5em;
+}
