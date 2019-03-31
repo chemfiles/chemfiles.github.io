@@ -13,6 +13,8 @@ script:
     - rm -f *.html
     - rm -f sitemap.xml robots.txt
     - pip install cactus pygments
+    # cactus insist on having a deployement engine installed ...
+    - pip install google_compute_engine
     - cd src
     - cactus build
     - cd ..
