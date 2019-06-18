@@ -231,7 +231,7 @@
     chemfiles<span style="color: #666666">::</span>Trajectory file(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>);
 
     <span style="color: #008000; font-weight: bold">auto</span> frame <span style="color: #666666">=</span> file.read();
-    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;There are &quot;</span> <span style="color: #666666">&lt;&lt;</span> frame.natoms() <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; atoms in the frame&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;There are &quot;</span> <span style="color: #666666">&lt;&lt;</span> frame.size() <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; atoms in the frame&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
     <span style="color: #008000; font-weight: bold">auto</span> positions <span style="color: #666666">=</span> frame.positions();
 
     <span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
@@ -250,10 +250,11 @@
         </div>
         <div id="c-example" class="tab-pane fade">
             <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdio.h&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdlib.h&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;chemfiles.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
-    CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>);
+    CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_trajectory_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&#39;r&#39;</span>);
     CHFL_FRAME<span style="color: #666666">*</span> frame <span style="color: #666666">=</span> chfl_frame();
 
     chfl_trajectory_read(file, frame);
@@ -269,7 +270,7 @@
     <span style="color: #B00040">bool</span> has_velocities <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
     chfl_frame_has_velocities(frame, <span style="color: #666666">&amp;</span>has_velocities);
 
-    <span style="color: #008000; font-weight: bold">if</span> (velocities) {
+    <span style="color: #008000; font-weight: bold">if</span> (has_velocities) {
         chfl_vector3d<span style="color: #666666">*</span> velocities <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
         chfl_frame_velocities(frame, <span style="color: #666666">&amp;</span>velocities, <span style="color: #666666">&amp;</span>natoms);
 
@@ -277,7 +278,7 @@
         <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
     }
 
-    chfl_close(file);
+    chfl_trajectory_close(file);
     chfl_free(frame);
     <span style="color: #008000; font-weight: bold">return</span> EXIT_SUCCESS;
 }
@@ -341,7 +342,7 @@ positions <span style="color: #666666">=</span> frame<span style="color: #666666
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>)<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
 
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read()<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>println<span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.natoms());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>println<span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.size());<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>positions<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.positions();<span style="color: #bbbbbb"></span>
 
 <span style="color: #bbbbbb">    </span><span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
