@@ -171,7 +171,7 @@
                     chemfiles::Trajectory file("filename.xyz");
 
                     auto frame = file.read();
-                    std::cout << "There are " << frame.natoms() << " atoms in the frame" << std::endl;
+                    std::cout << "There are " << frame.size() << " atoms in the frame" << std::endl;
                     auto positions = frame.positions();
 
                     // Do awesome science here with the positions
@@ -189,38 +189,39 @@
         </div>
         <div id="c-example" class="tab-pane fade">
             {% filter highlight:"C" %}
-                #include <stdio.h>
-                #include <chemfiles.h>
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <chemfiles.h>
 
-                int main() {
-                    CHFL_TRAJECTORY* file = chfl_open("filename.xyz", "r");
-                    CHFL_FRAME* frame = chfl_frame();
+            int main() {
+                CHFL_TRAJECTORY* file = chfl_trajectory_open("filename.xyz", 'r');
+                CHFL_FRAME* frame = chfl_frame();
 
-                    chfl_trajectory_read(file, frame);
+                chfl_trajectory_read(file, frame);
 
-                    uint64_t natoms = 0;
-                    chfl_vector3d* positions = NULL;
-                    chfl_frame_positions(frame, &positions, &natoms);
+                uint64_t natoms = 0;
+                chfl_vector3d* positions = NULL;
+                chfl_frame_positions(frame, &positions, &natoms);
 
-                    printf("There are %d atoms in the frame", natoms);
+                printf("There are %d atoms in the frame", natoms);
 
-                    // Do awesome science here with the positions
+                // Do awesome science here with the positions
 
-                    bool has_velocities = false;
-                    chfl_frame_has_velocities(frame, &has_velocities);
+                bool has_velocities = false;
+                chfl_frame_has_velocities(frame, &has_velocities);
 
-                    if (velocities) {
-                        chfl_vector3d* velocities = NULL;
-                        chfl_frame_velocities(frame, &velocities, &natoms);
+                if (has_velocities) {
+                    chfl_vector3d* velocities = NULL;
+                    chfl_frame_velocities(frame, &velocities, &natoms);
 
-                        // If the file contains information about the
-                        // velocities, you will find them here.
-                    }
-
-                    chfl_close(file);
-                    chfl_free(frame);
-                    return EXIT_SUCCESS;
+                    // If the file contains information about the
+                    // velocities, you will find them here.
                 }
+
+                chfl_trajectory_close(file);
+                chfl_free(frame);
+                return EXIT_SUCCESS;
+            }
             {% endfilter %}
         </div>
         <div id="fortran-example" class="tab-pane fade">
@@ -281,7 +282,7 @@
                     let file = Trajectory("filename.xyz", "r")?;
 
                     let frame = file.read()?;
-                    println!("There are {} atoms in the frame",  frame.natoms());
+                    println!("There are {} atoms in the frame",  frame.size());
                     let positions = frame.positions();
 
                     // Do awesome science here with the positions
