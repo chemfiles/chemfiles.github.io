@@ -7,7 +7,7 @@
 <div class="jumbotron">
     <div class="container">
         <img
-            src="{% static '/static/images/chemfiles.svg' %}"
+            src="/static/images/chemfiles.svg"
             alt="Chemfiles logo" class="img-responsive pull-right"
             id="chemfiles-logo"
         />
@@ -56,7 +56,7 @@
             formats.</p>
         </div>
         <div class="col-lg-4">
-            <img src="{% static '/static/images/words.png' %}" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
+            <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
             <h2><span class="mega-octicon octicon-check" aria-hidden="true"></span>
@@ -80,19 +80,19 @@
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/index.html" title="C++">
-                        <img src="{% static '/static/images/logo-cxx.png' %}" alt="C++ logo"/>
+                        <img src="/static/images/logo-cxx.png" alt="C++ logo"/>
                     </a>
                     <p>C++</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/capi.html" title="C">
-                        <img src="{% static '/static/images/logo-c.png' %}" alt="C logo"/>
+                        <img src="/static/images/logo-c.png" alt="C logo"/>
                     </a>
                     <p>C</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.f03/latest/index.html" title="Fortran">
-                        <img src="{% static '/static/images/logo-fortran.png' %}" alt="Fortran logo" />
+                        <img src="/static/images/logo-fortran.png" alt="Fortran logo" />
                     </a>
                     <p>Fortran</p>
                 </div>
@@ -100,19 +100,19 @@
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.py/latest/index.html" title="Python">
-                        <img src="{% static '/static/images/logo-python.png' %}" alt="Python logo" />
+                        <img src="/static/images/logo-python.png" alt="Python logo" />
                     </a>
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
-                        <img src="{% static '/static/images/logo-rust.png' %}" alt="Rust logo" />
+                        <img src="/static/images/logo-rust.png" alt="Rust logo" />
                     </a>
                     <p>Rust</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="Chemfiles.jl/latest/index.html" title="Julia">
-                        <img src="{% static '/static/images/logo-julia.png' %}" alt="Julia logo" />
+                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
                     </a>
                     <p>Julia</p>
                 </div>
@@ -163,160 +163,23 @@
     </ul>
     <div class="tab-content">
         <div id="cxx-example" class="tab-pane fade in active">
-            {% filter highlight:"C++" %}
-                #include <iostream>
-                #include <chemfiles.hpp>
-
-                int main() {
-                    chemfiles::Trajectory file("filename.xyz");
-
-                    auto frame = file.read();
-                    std::cout << "There are " << frame.size() << " atoms in the frame" << std::endl;
-                    auto positions = frame.positions();
-
-                    // Do awesome science here with the positions
-
-                    if (frame.velocities()) {
-                        auto velocities = *frame.velocities();
-
-                        // If the file contains information about the
-                        // velocities, you will find them here.
-                    }
-
-                    return 0;
-                }
-            {% endfilter %}
+            {% highlight 'cpp' %}{{ raw_include('code/example.cpp')}}{% endhighlight %}
         </div>
         <div id="c-example" class="tab-pane fade">
-            {% filter highlight:"C" %}
-            #include <stdio.h>
-            #include <stdlib.h>
-            #include <chemfiles.h>
-
-            int main() {
-                CHFL_TRAJECTORY* file = chfl_trajectory_open("filename.xyz", 'r');
-                CHFL_FRAME* frame = chfl_frame();
-
-                chfl_trajectory_read(file, frame);
-
-                uint64_t natoms = 0;
-                chfl_vector3d* positions = NULL;
-                chfl_frame_positions(frame, &positions, &natoms);
-
-                printf("There are %d atoms in the frame", natoms);
-
-                // Do awesome science here with the positions
-
-                bool has_velocities = false;
-                chfl_frame_has_velocities(frame, &has_velocities);
-
-                if (has_velocities) {
-                    chfl_vector3d* velocities = NULL;
-                    chfl_frame_velocities(frame, &velocities, &natoms);
-
-                    // If the file contains information about the
-                    // velocities, you will find them here.
-                }
-
-                chfl_trajectory_close(file);
-                chfl_free(frame);
-                return EXIT_SUCCESS;
-            }
-            {% endfilter %}
+            {% highlight 'c' %}{{ raw_include('code/example.c')}}{% endhighlight %}
         </div>
         <div id="fortran-example" class="tab-pane fade">
-            {% filter highlight:"Fortran" %}
-                program example
-                    use chemfiles
-                    use iso_fortran_env, only: real64
-                    implicit none
-
-                    type(chfl_trajectory) :: file
-                    type(chfl_frame) :: frame
-                    real(real64), dimension(:, :), pointer :: positions, velocities
-
-                    call file%open("filename.xyz", "r", status=status)
-                    if (status /= 0) stop
-
-                    call frame%init()
-                    call file%read(frame, status=status)
-                    if (status /= 0) stop
-
-                    positions => frame%positions()
-                    write(*, *) "There are", size(positions, 2), "atoms in the frame"
-
-                    ! Do awesome science here with the positions
-
-                    if (frame%has_velocities()) then
-                        velocities => frame%velocities()
-
-                        ! If the file contains information about the
-                        ! velocities, you will find them here.
-                    end if
-                end program
-            {% endfilter %}
+            {% highlight 'fortran' %}{{ raw_include('code/example.f95')}}{% endhighlight %}
         </div>
         <div id="python-example" class="tab-pane fade">
-            {% filter highlight:"Python" %}
-                from chemfiles import Trajectory
-
-                file = Trajectory("filename.xyz")
-                frame = file.read()
-
-                print("There are {} atoms in the frame".format(len(frame.atoms)))
-                positions = frame.positions
-
-                # Do awesome science here with the positions
-
-                if frame.has_velocities():
-                    velocities = frame.velocities
-                    # If the file contains information about the
-                    # velocities, you will find them here.
-            {% endfilter %}
+            {% highlight 'python' %}{{ raw_include('code/example.py')}}{% endhighlight %}
         </div>
         <div id="rust-example" class="tab-pane fade">
-            {% filter highlight:"Rust" %}
-                use chemfiles::Trajectory;
-
-                fn main() -> Result<(), Box<std::error::Error>> {
-                    let file = Trajectory("filename.xyz", "r")?;
-
-                    let frame = file.read()?;
-                    println!("There are {} atoms in the frame",  frame.size());
-                    let positions = frame.positions();
-
-                    // Do awesome science here with the positions
-
-                    if frame.has_velocities() {
-                        let velocities = frame.velocities();
-
-                        // If the file contains information about the
-                        // velocities, you will find them here.
-                    }
-                }
-
-                return OK(());
-            {% endfilter %}
+            {% highlight 'rust' %}{{ raw_include('code/example.rs')}}{% endhighlight %}
         </div>
         <div id="julia-example" class="tab-pane fade">
-            {% filter highlight:"Julia" %}
-                using Chemfiles
+            {% highlight 'julia' %}{{ raw_include('code/example.jl')}}{% endhighlight %}
 
-                file = Trajectory("filename.xyz")
-                frame = read(file)
-
-                println("There are $(size(frame)) atoms in the frame")
-                pos = positions(frame);
-
-                # Do awesome science here with the positions
-
-                if has_velocities(frame)
-                    vel = velocities(frame)
-
-                    # If the file contains information about the
-                    # velocities, you will find them here.
-                end
-            {% endfilter %}
         </div>
     </div>
 </div>

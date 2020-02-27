@@ -12,13 +12,9 @@ script:
     - rm -rf static
     - rm -f *.html
     - rm -f sitemap.xml robots.txt
-    - pip install cactus pygments
-    # cactus insist on having a deployement engine installed ...
-    - pip install google_compute_engine
-    - cd src
-    - cactus build
-    - cd ..
-    - mv src/.build/* .
+    - pip install -r requirements.txt
+    - python build.py
+    - mv build/* .
     - git add *.html static sitemap.xml robots.txt
     - git commit -a -m "[AUTO-COMMIT] Build the website" -m "[ci skip]"
     - git push origin HEAD:master
