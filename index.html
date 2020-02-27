@@ -30,8 +30,8 @@
     </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/index.html">Home</a></li>
-            <li class=""><a href="/contact.html">Contact</a></li>
+            <li  class="active" ><a href="/index.html">Home</a></li>
+            <li ><a href="/contact.html">Contact</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -57,7 +57,6 @@
     </div><!--/.navbar-collapse -->
 </div>
 </div>
-
     </div>
 
     <div id="wrap">
@@ -224,159 +223,160 @@
     </ul>
     <div class="tab-content">
         <div id="cxx-example" class="tab-pane fade in active">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;chemfiles.hpp&gt;</span><span style="color: #BC7A00"></span>
+            <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;chemfiles.hpp&gt;</span><span class="cp"></span>
 
-<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
-    chemfiles<span style="color: #666666">::</span>Trajectory file(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">);</span>
 
-    <span style="color: #008000; font-weight: bold">auto</span> frame <span style="color: #666666">=</span> file.read();
-    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;There are &quot;</span> <span style="color: #666666">&lt;&lt;</span> frame.size() <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; atoms in the frame&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
-    <span style="color: #008000; font-weight: bold">auto</span> positions <span style="color: #666666">=</span> frame.positions();
+    <span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;There are &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; atoms in the frame&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
 
-    <span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+    <span class="c1">// Do awesome science here with the positions</span>
 
-    <span style="color: #008000; font-weight: bold">if</span> (frame.velocities()) {
-        <span style="color: #008000; font-weight: bold">auto</span> velocities <span style="color: #666666">=</span> <span style="color: #666666">*</span>frame.velocities();
+    <span class="k">if</span> <span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">velocities</span> <span class="o">=</span> <span class="o">*</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">();</span>
 
-        <span style="color: #408080; font-style: italic">// If the file contains information about the</span>
-        <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
-    }
+        <span class="c1">// If the file contains information about the</span>
+        <span class="c1">// velocities, you will find them here.</span>
+    <span class="p">}</span>
 
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
         </div>
         <div id="c-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdio.h&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdlib.h&gt;</span><span style="color: #BC7A00"></span>
-<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;chemfiles.h&gt;</span><span style="color: #BC7A00"></span>
+            <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
 
-<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
-    CHFL_TRAJECTORY<span style="color: #666666">*</span> file <span style="color: #666666">=</span> chfl_trajectory_open(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&#39;r&#39;</span>);
-    CHFL_FRAME<span style="color: #666666">*</span> frame <span style="color: #666666">=</span> chfl_frame();
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
 
-    chfl_trajectory_read(file, frame);
+    <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
 
-    <span style="color: #B00040">uint64_t</span> natoms <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    chfl_vector3d<span style="color: #666666">*</span> positions <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-    chfl_frame_positions(frame, <span style="color: #666666">&amp;</span>positions, <span style="color: #666666">&amp;</span>natoms);
+    <span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
 
-    printf(<span style="color: #BA2121">&quot;There are %d atoms in the frame&quot;</span>, natoms);
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;There are %d atoms in the frame&quot;</span><span class="p">,</span> <span class="n">natoms</span><span class="p">);</span>
 
-    <span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+    <span class="c1">// Do awesome science here with the positions</span>
 
-    <span style="color: #B00040">bool</span> has_velocities <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
-    chfl_frame_has_velocities(frame, <span style="color: #666666">&amp;</span>has_velocities);
+    <span class="kt">bool</span> <span class="n">has_velocities</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">chfl_frame_has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">has_velocities</span><span class="p">);</span>
 
-    <span style="color: #008000; font-weight: bold">if</span> (has_velocities) {
-        chfl_vector3d<span style="color: #666666">*</span> velocities <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-        chfl_frame_velocities(frame, <span style="color: #666666">&amp;</span>velocities, <span style="color: #666666">&amp;</span>natoms);
+    <span class="k">if</span> <span class="p">(</span><span class="n">has_velocities</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">chfl_frame_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
 
-        <span style="color: #408080; font-style: italic">// If the file contains information about the</span>
-        <span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
-    }
+        <span class="c1">// If the file contains information about the</span>
+        <span class="c1">// velocities, you will find them here.</span>
+    <span class="p">}</span>
 
-    chfl_trajectory_close(file);
-    chfl_free(frame);
-    <span style="color: #008000; font-weight: bold">return</span> EXIT_SUCCESS;
-}
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+    <span class="n">chfl_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
         </div>
         <div id="fortran-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">program </span>example
-    <span style="color: #008000; font-weight: bold">use </span>chemfiles
-    <span style="color: #008000; font-weight: bold">use </span>iso_fortran_env, only: real64
-    <span style="color: #008000; font-weight: bold">implicit none</span>
+            <div class="highlight"><pre><span></span><span class="k">program </span><span class="n">example</span>
+    <span class="k">use </span><span class="n">chemfiles</span>
+    <span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">real64</span>
+    <span class="k">implicit none</span>
 
-<span style="color: #008000; font-weight: bold">    type</span>(chfl_trajectory) <span style="color: #008000; font-weight: bold">::</span> <span style="color: #008000; font-weight: bold">file</span>
-<span style="color: #008000; font-weight: bold">    type</span>(chfl_frame) <span style="color: #008000; font-weight: bold">::</span> frame
-    <span style="color: #B00040">real</span>(real64), <span style="color: #008000; font-weight: bold">dimension</span>(:, :), <span style="color: #008000; font-weight: bold">pointer</span> <span style="color: #008000; font-weight: bold">::</span> positions, velocities
+<span class="k">    type</span><span class="p">(</span><span class="n">chfl_trajectory</span><span class="p">)</span> <span class="kd">::</span> <span class="k">file</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">chfl_frame</span><span class="p">)</span> <span class="kd">::</span> <span class="n">frame</span>
+    <span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">),</span> <span class="k">dimension</span><span class="p">(:,</span> <span class="p">:),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span>
 
-    <span style="color: #008000; font-weight: bold">call file</span>%<span style="color: #008000; font-weight: bold">open</span>(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>, <span style="color: #BA2121">&quot;r&quot;</span>, status<span style="color: #666666">=</span>status)
-    <span style="color: #008000; font-weight: bold">if</span> (status <span style="color: #666666">/=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">stop</span>
+    <span class="k">call file</span><span class="p">%</span><span class="k">open</span><span class="p">(</span><span class="s2">&quot;filename.xyz&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">stop</span>
 
-<span style="color: #008000; font-weight: bold">    call </span>frame%init()
-    <span style="color: #008000; font-weight: bold">call file</span>%<span style="color: #008000; font-weight: bold">read</span>(frame, status<span style="color: #666666">=</span>status)
-    <span style="color: #008000; font-weight: bold">if</span> (status <span style="color: #666666">/=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">stop</span>
+<span class="k">    call </span><span class="n">frame</span><span class="p">%</span><span class="n">init</span><span class="p">()</span>
+    <span class="k">call file</span><span class="p">%</span><span class="k">read</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">stop</span>
 
-<span style="color: #008000; font-weight: bold">    </span>positions <span style="color: #666666">=&gt;</span> frame%positions()
-    <span style="color: #008000; font-weight: bold">write</span>(<span style="color: #666666">*</span>, <span style="color: #666666">*</span>) <span style="color: #BA2121">&quot;There are&quot;</span>, size(positions, <span style="color: #666666">2</span>), <span style="color: #BA2121">&quot;atoms in the frame&quot;</span>
+<span class="k">    </span><span class="n">positions</span> <span class="o">=&gt;</span> <span class="n">frame</span><span class="p">%</span><span class="n">positions</span><span class="p">()</span>
+    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;atoms in the frame&quot;</span>
 
-    <span style="color: #408080; font-style: italic">! Do awesome science here with the positions</span>
+    <span class="c">! Do awesome science here with the positions</span>
 
-    <span style="color: #008000; font-weight: bold">if</span> (frame%has_velocities()) <span style="color: #008000; font-weight: bold">then</span>
-<span style="color: #008000; font-weight: bold">        </span>velocities <span style="color: #666666">=&gt;</span> frame%velocities()
+    <span class="k">if</span> <span class="p">(</span><span class="n">frame</span><span class="p">%</span><span class="n">has_velocities</span><span class="p">())</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">velocities</span> <span class="o">=&gt;</span> <span class="n">frame</span><span class="p">%</span><span class="n">velocities</span><span class="p">()</span>
 
-        <span style="color: #408080; font-style: italic">! If the file contains information about the</span>
-        <span style="color: #408080; font-style: italic">! velocities, you will find them here.</span>
-    <span style="color: #008000; font-weight: bold">end if</span>
-<span style="color: #008000; font-weight: bold">end program</span>
+        <span class="c">! If the file contains information about the</span>
+        <span class="c">! velocities, you will find them here.</span>
+    <span class="k">end if</span>
+<span class="k">end program</span>
 </pre></div>
 
         </div>
         <div id="python-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">chemfiles</span> <span style="color: #008000; font-weight: bold">import</span> Trajectory
+            <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chemfiles</span> <span class="kn">import</span> <span class="n">Trajectory</span>
 
-<span style="color: #008000">file</span> <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
-frame <span style="color: #666666">=</span> <span style="color: #008000">file</span><span style="color: #666666">.</span>read()
+<span class="n">file</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s2">&quot;filename.xyz&quot;</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span><span style="color: #666666">.</span>format(<span style="color: #008000">len</span>(frame<span style="color: #666666">.</span>atoms)))
-positions <span style="color: #666666">=</span> frame<span style="color: #666666">.</span>positions
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">{}</span><span class="s2"> atoms in the frame&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">atoms</span><span class="p">)))</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">positions</span>
 
-<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
+<span class="c1"># Do awesome science here with the positions</span>
 
-<span style="color: #008000; font-weight: bold">if</span> frame<span style="color: #666666">.</span>has_velocities():
-    velocities <span style="color: #666666">=</span> frame<span style="color: #666666">.</span>velocities
-    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
-    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
+<span class="k">if</span> <span class="n">frame</span><span class="o">.</span><span class="n">has_velocities</span><span class="p">():</span>
+    <span class="n">velocities</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">velocities</span>
+    <span class="c1"># If the file contains information about the</span>
+    <span class="c1"># velocities, you will find them here.</span>
 </pre></div>
 
         </div>
         <div id="rust-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">use</span><span style="color: #bbbbbb"> </span>chemfiles::Trajectory;<span style="color: #bbbbbb"></span>
+            <div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">chemfiles</span>::<span class="n">Trajectory</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #008000; font-weight: bold">fn</span> <span style="color: #0000FF">main</span>()<span style="color: #bbbbbb"> </span>-&gt; <span style="color: #008000">Result</span><span style="color: #666666">&lt;</span>(),<span style="color: #bbbbbb"> </span><span style="color: #008000">Box</span><span style="color: #666666">&lt;</span>std::error::Error<span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;r&quot;</span>)<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="p">(),</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">std</span>::<span class="n">error</span>::<span class="n">Error</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>frame<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>file.read()<span style="color: #666666">?</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>println<span style="color: #666666">!</span>(<span style="color: #BA2121">&quot;There are {} atoms in the frame&quot;</span>,<span style="color: #bbbbbb">  </span>frame.size());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>positions<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.positions();<span style="color: #bbbbbb"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;There are {} atoms in the frame&quot;</span><span class="p">,</span><span class="w">  </span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span><span class="w"></span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #408080; font-style: italic">// Do awesome science here with the positions</span>
+<span class="w">    </span><span class="c1">// Do awesome science here with the positions</span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>frame.has_velocities()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>velocities<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>frame.velocities();<span style="color: #bbbbbb"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">has_velocities</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">velocities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">();</span><span class="w"></span>
 
-<span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// If the file contains information about the</span>
-<span style="color: #bbbbbb">        </span><span style="color: #408080; font-style: italic">// velocities, you will find them here.</span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span class="w">        </span><span class="c1">// If the file contains information about the</span>
+<span class="w">        </span><span class="c1">// velocities, you will find them here.</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-<span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>OK(());<span style="color: #bbbbbb"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">OK</span><span class="p">(());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
         </div>
         <div id="julia-example" class="tab-pane fade">
-            <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">using</span> Chemfiles
+            <div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Chemfiles</span>
 
-file <span style="color: #666666">=</span> Trajectory(<span style="color: #BA2121">&quot;filename.xyz&quot;</span>)
-frame <span style="color: #666666">=</span> read(file)
+<span class="n">file</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
-println(<span style="color: #BA2121">&quot;There are </span><span style="color: #BB6688; font-weight: bold">$</span>(size(frame))<span style="color: #BA2121"> atoms in the frame&quot;</span>)
-pos <span style="color: #666666">=</span> positions(frame);
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;There are </span><span class="si">$</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span><span class="s"> atoms in the frame&quot;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">positions</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
 
-<span style="color: #408080; font-style: italic"># Do awesome science here with the positions</span>
+<span class="c"># Do awesome science here with the positions</span>
 
-<span style="color: #008000; font-weight: bold">if</span> has_velocities(frame)
-    vel <span style="color: #666666">=</span> velocities(frame)
+<span class="k">if</span> <span class="n">has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="n">vel</span> <span class="o">=</span> <span class="n">velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
 
-    <span style="color: #408080; font-style: italic"># If the file contains information about the</span>
-    <span style="color: #408080; font-style: italic"># velocities, you will find them here.</span>
-<span style="color: #008000; font-weight: bold">end</span>
+    <span class="c"># If the file contains information about the</span>
+    <span class="c"># velocities, you will find them here.</span>
+<span class="k">end</span>
 </pre></div>
+
 
         </div>
     </div>
@@ -398,7 +398,6 @@ pos <span style="color: #666666">=</span> positions(frame);
         <a href="https://octicons.github.com/">Octicons</a>
     </small>
 </footer>
-
     
 
     <script src="/static/js/vendor/jquery-1.10.1.js"></script>
@@ -415,7 +414,6 @@ pos <span style="color: #666666">=</span> positions(frame);
     ga('create', 'UA-80187878-1', 'auto');
     ga('send', 'pageview');
 </script>
-
     
 </body>
 
