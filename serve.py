@@ -9,7 +9,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from build import build, BUILD_ROOT
+from build import build, BUILD_ROOT, SRC_ROOT
 
 
 if sys.version_info < (3, 7):
@@ -57,8 +57,7 @@ def main():
 
     handler = RebuildHandler()
     observer = Observer()
-    root = os.path.dirname(os.path.abspath(__file__))
-    observer.schedule(handler, root, recursive=True)
+    observer.schedule(handler, SRC_ROOT, recursive=True)
     observer.start()
 
     server = HTTPServerThread()

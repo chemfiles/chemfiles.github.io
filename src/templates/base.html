@@ -23,15 +23,15 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
         {% include "nav.html" %}
-    </div>
+    </nav>
 
     <div id="wrap">
-        <div id="main">
+        <main>
             {% block body %}
             {% endblock %}
-        </div>
+        </main>
     </div>
 
     {% block footer %}

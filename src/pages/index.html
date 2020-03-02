@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} — An efficient chemistry IO library{% endblock %}
+{% block title %} — read and write chemistry files{% endblock %}
 
 {% block body %}
 <div class="vspace-3"></div>
@@ -13,27 +13,28 @@
         />
 
         <h1>Chemfiles</h1>
-        <h2>A library for reading and writing trajectory files</h2>
-        <p>Chemfiles provides a <strong>simple</strong> and <strong>unified</strong>
-            interface for reading and writing computational chemistry
-            files: trajectories, configurations, and topologies.</p>
+        <h2>Read and write computational chemistry files</h2>
+
+        <p>Chemfiles is a library providing a <strong>simple</strong> and
+        <strong>format agnostic</strong> interface for reading and writing
+        computational chemistry files: trajectories, configurations, and
+        topologies.</p>
+
         <div class="container">
             <br/>
             <div class="row input-group-btn text-center">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-3">
-                    <a href="http://github.com/chemfiles/chemfiles/releases/">
-                        <button class="btn-success flat-btn" type="button" name="Download">
-                            <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
-                            Download
-                        </button>
-                    </a>
+                    <div class="dropdown">
+                        <a class="btn-success flat-btn dropdown-toggle" href='#installation'>
+                            {% octoicon 'rocket', 2 %} Installation
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-3">
                     <a href="documentation.html">
                         <button class="btn-primary flat-btn" type="button" name="Documentation">
-                            <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
-                            Documentation
+                            {% octoicon 'book', 2 %} Documentation
                         </button>
                     </a>
                 </div>
@@ -46,53 +47,51 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-file-code" aria-hidden="true"></span>
-                Format agnostic
-            </h2>
-            <p>Chemfiles provides a unique interface for all supported file formats. Read
-            XYZ, PDB, NetCDF, TRJ and <a href="chemfiles/latest/formats.html#list-of-supported-formats">
-            other formats</a> with the exact same code.</p>
-            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS, NetCDF, …)
-            formats.</p>
+            <h2>{% octoicon 'file-code', 2 %} Format agnostic</h2>
+
+            <p>Chemfiles provides a unique interface for all supported file
+            formats. Read XYZ, PDB, NetCDF, TRJ and <a
+            href="chemfiles/latest/formats.html#list-of-supported-formats"> many
+            other formats</a> using the same code.</p>
+
+            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS,
+            NetCDF, …) formats.</p>
         </div>
         <div class="col-lg-4">
             <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-check" aria-hidden="true"></span>
-                Easy to use
-            </h2>
+            <h2>{% octoicon 'check', 2 %} Easy to use</h2>
 
-            <p>Chemfiles is built in an object-oriented fashion, and the public interface
-            consists of 5 classes only.</p>
-            <p>The interface focuses on simplicity, and has extensive
+            <p>Chemfiles focuses on simplicity, and has extensive
             <a href="chemfiles/latest/index.html">documentation</a>.</p>
+
+            <p>The API is built in an object-oriented fashion, with less than
+            10 classes publicly exposed.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-globe" aria-hidden="true"></span>
-                Multiple languages
-            </h2>
+            <h2>{% octoicon 'globe', 2 %} Multiple languages</h2>
             <p>Chemfiles is written in C++, but you can use it with all the major
-            scientific languages:</p>
+            scientific languages</p>
 
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/index.html" title="C++">
-                        <img src="/static/images/logo-cxx.png" alt="C++ logo"/>
+                        <img src="/static/images/logo-cxx.svg" width=65px alt="C++ logo"/>
                     </a>
                     <p>C++</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/capi.html" title="C">
-                        <img src="/static/images/logo-c.png" alt="C logo"/>
+                        <img src="/static/images/logo-c.svg" width=65px alt="C logo"/>
                     </a>
                     <p>C</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.f03/latest/index.html" title="Fortran">
-                        <img src="/static/images/logo-fortran.png" alt="Fortran logo" />
+                        <img src="/static/images/logo-fortran.svg" width=65px alt="Fortran logo" />
                     </a>
                     <p>Fortran</p>
                 </div>
@@ -100,30 +99,29 @@
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.py/latest/index.html" title="Python">
-                        <img src="/static/images/logo-python.png" alt="Python logo" />
+                        <img src="/static/images/logo-python.svg" width=65px alt="Python logo" />
                     </a>
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
-                        <img src="/static/images/logo-rust.png" alt="Rust logo" />
+                        <img src="/static/images/logo-rust.svg" width=65px alt="Rust logo" />
                     </a>
                     <p>Rust</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="Chemfiles.jl/latest/index.html" title="Julia">
-                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
+                        <img src="/static/images/logo-julia.svg" width=65px alt="Julia logo" />
                     </a>
                     <p>Julia</p>
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-gear" aria-hidden="true"></span>
-                Principal features
-            </h2>
+            <h2>{% octoicon 'gear', 2 %} Principal features</h2>
             <ul>
-                <li>Powerfull atom selection language;</li>
+                <li>Transparently read and write compressed files (<tt>.gz</tt>, <tt>.xz</tt>, and <tt>.bz2</tt>);</li>
+                <li>Powerfull atom selection language, including constrains on multiple atoms;</li>
                 <li>Automatic file type recognition;</li>
                 <li>Support non-constant number of atoms;</li>
                 <li>Orthorombic and tricliclinic periodic boundary conditions;</li>
@@ -132,7 +130,7 @@
             </ul>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-mark-github" aria-hidden="true"></span>
+            <h2>{% octoicon 'mark-github', 2 %}
                 Open-source
             </h2>
             <p>Chemfiles is open-source under the 3 clauses BSD licence, hosted
@@ -145,13 +143,132 @@
         </div>
     </div>
 </div>
+
+<div class="vspace-4"></div>
+<div class="container">
+    <h2 id=installation>Installation</h2>
+    <div class="row installation">
+        <div class="col-md-6">
+            <figure>
+                <figcaption>conda-forge</figcaption>
+                <a href="https://anaconda.org/conda-forge/chemfiles">
+                    <img src="/static/images/conda-forge.svg" height=70px alt="Conda-forge logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">conda install -c conda-forge chemfiles</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>PyPi</figcaption>
+                <a href="https://pypi.org/project/chemfiles/">
+                    <img src="/static/images/pypi-logo.svg" height=70px alt="PyPi logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">pip install chemfiles</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Julia Pkg</figcaption>
+                <a href="https://pkg.julialang.org/docs/Chemfiles/GIbve/0.9.1/">
+                    <img src="/static/images/logo-julia.svg" height=70px alt="Julia logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">Pkg.add("Chemfiles")</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Cargo</figcaption>
+                <a href="https://crates.io/crates/chemfiles">
+                    <img src="/static/images/cargo-logo.svg" height=70px alt="Cargo logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">chemfiles = "0.9"</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Linux distributions</figcaption>
+                <a href="https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
+                    <img src="/static/images/linux-tux.svg" height=60px alt="Tux, the Linux penguin" />
+                </a>
+            </figure>
+            See the <a href="see https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
+            documentation</a> for the installation instruction with apt or yum.
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>others</figcaption>
+                <a href="https://chemfiles.org/chemfiles/latest/installation.html">
+                </a>
+                {% octoicon 'bookmark', 3.5 %}
+                See the <a href="https://chemfiles.org/chemfiles/latest/installation.html">
+                documentation for more installation methods</a>
+            </figure>
+        </div>
+
+
+        <!-- <div class="col-md-6">
+
+
+            <p>Chemfiles is available for <a
+            href="">multiple
+            Linux distributions</a>, using <a
+            href="">pip</a>, the <a
+            href="">Julia
+            package manager</a>, <a
+            href="">cargo (rust package
+            manager)</a>, and at <a
+            href="">other
+            locations</a>.</p>
+
+        </div> -->
+    </div>
+
+    <div class="vspace-1"></div>
+    <div class="row installation">
+        <h3>Build from sources</h3>
+        <div class="col-md-6">
+            <figure>
+                <figcaption>latest release</figcaption>
+                <a href="https://github.com/chemfiles/chemfiles/releases">
+                    {% octoicon 'cloud-download', 4 %}
+                </a>
+            </figure>
+            <p><a href="https://github.com/chemfiles/chemfiles/releases">Download and extract the latest release</a>, and then run</p>
+            <pre>
+cd chemfiles && mkdir build && cd build
+cmake ..
+cmake --build . --config Release --target install
+</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>master</figcaption>
+                <a href="https://github.com/chemfiles/chemfiles">
+                    {% octoicon 'mark-github', 4 %}
+                </a>
+            </figure>
+            <pre>
+git clone https://github.com/chemfiles/chemfiles
+cd chemfiles && mkdir build && cd build
+cmake ..
+cmake --build . --config Release --target install
+</pre>
+        </div>
+    </div>
+</div>
+
 <div class="vspace-4"></div>
 <div class="container">
     <h2>Usage examples</h2>
-    <p>
-        Here is a small usage example for Chemfiles. More examples can be found in the
-        documentation for each language.
-    </p>
+    <p>Here is how you can use chemfiles to get the position of atoms from a
+    trajectory. More examples can be found in the documentation for each
+    language.</p>
 
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#cxx-example">C++</a></li>
@@ -179,8 +296,8 @@
         </div>
         <div id="julia-example" class="tab-pane fade">
             {% highlight 'julia' %}{{ raw_include('code/example.jl')}}{% endhighlight %}
-
         </div>
     </div>
 </div>
+
 {% endblock %}
