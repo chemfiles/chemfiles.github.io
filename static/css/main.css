@@ -8,7 +8,7 @@ html, body {
   min-height: 100%;
 }
 
-#main {
+main {
   overflow:auto;
   padding-bottom:100px; /* this needs to be bigger than footer height*/
 }
@@ -18,15 +18,38 @@ html, body {
     padding-top: 20px;
 }
 
-.footer {
+.octoicon {
+    margin-right: 0.2ex;
+}
+
+.navbar {
+    background-image: none;
+    background-color: #ffffff;
+    color: black;
+}
+
+nav a {
+    color: black;
+}
+
+nav .active a {
+    color: #2a6496;
+}
+
+.nav .caret {
+    border-top-color: black;
+    border-bottom-color: black;
+}
+
+footer {
   padding-top: 20px;
   text-align: center;
   font-size: 15px;
   font-weight: 200;
   background-color: #eeeeee;
   position: relative;
-  margin-top: -90px; /* negative value of footer height */
-  height: 90px;
+  margin-top: -70px; /* negative value of footer height */
+  height: 70px;
   clear: both;
 }
 
@@ -52,21 +75,32 @@ html, body {
 }
 
 .vspace-1 {
-    min-height: 1em;
+    margin-top: 1em;
 }
 
 .vspace-2 {
-    min-height: 2em;
+    margin-top: 2em;
 }
 
 .vspace-3 {
-    min-height: 3em;
+    margin-top: 3em;
 }
 
 .vspace-4 {
-    min-height: 4em;
+    margin-top: 4em;
 }
 
 .vspace-5 {
-    min-height: 5em;
+    margin-top: 5em;
+}
+
+.installation figure img,.installation figure .octoicon {
+    margin: auto;
+    margin-bottom: 1em;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 2em;
 }

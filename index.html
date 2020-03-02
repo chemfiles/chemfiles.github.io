@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chemfiles — An efficient chemistry IO library</title>
+    <title>Chemfiles — read and write chemistry files</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -23,17 +23,20 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
         <div class="container">
     <div class="navbar-header">
         <a class="navbar-brand" href="/index.html">Chemfiles</a>
     </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li  class="active" ><a href="/index.html">Home</a></li>
-            <li ><a href="/contact.html">Contact</a></li>
+            <li ><a href="/contact.html">
+                <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4z"/></svg> Contact
+            </a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg> Documentation <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">C++ and C</li>
                     <li><a href="/chemfiles/latest/index.html">Latest</a></li>
@@ -53,14 +56,16 @@
                     <li><a href="/chemfiles.rs/0.9.3/chemfiles/">Stable (0.9.30)</a></li>
                 </ul>
             </li>
+            <li><a href="https://github.com/chemfiles/chemfiles">
+                <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Sources
+            </a></li>
         </ul>
     </div><!--/.navbar-collapse -->
 </div>
-</div>
-    </div>
+    </nav>
 
     <div id="wrap">
-        <div id="main">
+        <main>
             
 <div class="vspace-3"></div>
 
@@ -73,27 +78,28 @@
         />
 
         <h1>Chemfiles</h1>
-        <h2>A library for reading and writing trajectory files</h2>
-        <p>Chemfiles provides a <strong>simple</strong> and <strong>unified</strong>
-            interface for reading and writing computational chemistry
-            files: trajectories, configurations, and topologies.</p>
+        <h2>Read and write computational chemistry files</h2>
+
+        <p>Chemfiles is a library providing a <strong>simple</strong> and
+        <strong>format agnostic</strong> interface for reading and writing
+        computational chemistry files: trajectories, configurations, and
+        topologies.</p>
+
         <div class="container">
             <br/>
             <div class="row input-group-btn text-center">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-3">
-                    <a href="http://github.com/chemfiles/chemfiles/releases/">
-                        <button class="btn-success flat-btn" type="button" name="Download">
-                            <span class="mega-octicon octicon-cloud-download" aria-hidden="true"></span>
-                            Download
-                        </button>
-                    </a>
+                    <div class="dropdown">
+                        <a class="btn-success flat-btn dropdown-toggle" href='#installation'>
+                            <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M12.17 3.83c-.27-.27-.47-.55-.63-.88-.16-.31-.27-.66-.34-1.02-.58.33-1.16.7-1.73 1.13-.58.44-1.14.94-1.69 1.48-.7.7-1.33 1.81-1.78 2.45H3L0 10h3l2-2c-.34.77-1.02 2.98-1 3l1 1c.02.02 2.23-.64 3-1l-2 2v3l3-3v-3c.64-.45 1.75-1.09 2.45-1.78.55-.55 1.05-1.13 1.47-1.7.44-.58.81-1.16 1.14-1.72-.36-.08-.7-.19-1.03-.34a3.39 3.39 0 01-.86-.63zM16 0s-.09.38-.3 1.06c-.2.7-.55 1.58-1.06 2.66-.7-.08-1.27-.33-1.66-.72-.39-.39-.63-.94-.7-1.64C13.36.84 14.23.48 14.92.28 15.62.08 16 0 16 0z"/></svg> Installation
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-3">
                     <a href="documentation.html">
                         <button class="btn-primary flat-btn" type="button" name="Documentation">
-                            <span class="mega-octicon octicon-flame" aria-hidden="true"></span>
-                            Documentation
+                            <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg> Documentation
                         </button>
                     </a>
                 </div>
@@ -106,53 +112,51 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-file-code" aria-hidden="true"></span>
-                Format agnostic
-            </h2>
-            <p>Chemfiles provides a unique interface for all supported file formats. Read
-            XYZ, PDB, NetCDF, TRJ and <a href="chemfiles/latest/formats.html#list-of-supported-formats">
-            other formats</a> with the exact same code.</p>
-            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS, NetCDF, …)
-            formats.</p>
+            <h2><svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Format agnostic</h2>
+
+            <p>Chemfiles provides a unique interface for all supported file
+            formats. Read XYZ, PDB, NetCDF, TRJ and <a
+            href="chemfiles/latest/formats.html#list-of-supported-formats"> many
+            other formats</a> using the same code.</p>
+
+            <p>Chemfiles supports both text (XYZ, PDB, …) and binary (GROMACS,
+            NetCDF, …) formats.</p>
         </div>
         <div class="col-lg-4">
             <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-check" aria-hidden="true"></span>
-                Easy to use
-            </h2>
+            <h2><svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg> Easy to use</h2>
 
-            <p>Chemfiles is built in an object-oriented fashion, and the public interface
-            consists of 5 classes only.</p>
-            <p>The interface focuses on simplicity, and has extensive
+            <p>Chemfiles focuses on simplicity, and has extensive
             <a href="chemfiles/latest/index.html">documentation</a>.</p>
+
+            <p>The API is built in an object-oriented fashion, with less than
+            10 classes publicly exposed.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-globe" aria-hidden="true"></span>
-                Multiple languages
-            </h2>
+            <h2><svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7c.48 0 .94-.05 1.38-.14-.17-.08-.2-.73-.02-1.09.19-.41.81-1.45.2-1.8-.61-.35-.44-.5-.81-.91-.37-.41-.22-.47-.25-.58-.08-.34.36-.89.39-.94.02-.06.02-.27 0-.33 0-.08-.27-.22-.34-.23-.06 0-.11.11-.2.13-.09.02-.5-.25-.59-.33-.09-.08-.14-.23-.27-.34-.13-.13-.14-.03-.33-.11s-.8-.31-1.28-.48c-.48-.19-.52-.47-.52-.66-.02-.2-.3-.47-.42-.67-.14-.2-.16-.47-.2-.41-.04.06.25.78.2.81-.05.02-.16-.2-.3-.38-.14-.19.14-.09-.3-.95s.14-1.3.17-1.75c.03-.45.38.17.19-.13-.19-.3 0-.89-.14-1.11-.13-.22-.88.25-.88.25.02-.22.69-.58 1.16-.92.47-.34.78-.06 1.16.05.39.13.41.09.28-.05-.13-.13.06-.17.36-.13.28.05.38.41.83.36.47-.03.05.09.11.22s-.06.11-.38.3c-.3.2.02.22.55.61s.38-.25.31-.55c-.07-.3.39-.06.39-.06.33.22.27.02.5.08.23.06.91.64.91.64-.83.44-.31.48-.17.59.14.11-.28.3-.28.3-.17-.17-.19.02-.3.08-.11.06-.02.22-.02.22-.56.09-.44.69-.42.83 0 .14-.38.36-.47.58-.09.2.25.64.06.66-.19.03-.34-.66-1.31-.41-.3.08-.94.41-.59 1.08.36.69.92-.19 1.11-.09.19.1-.06.53-.02.55.04.02.53.02.56.61.03.59.77.53.92.55.17 0 .7-.44.77-.45.06-.03.38-.28 1.03.09.66.36.98.31 1.2.47.22.16.08.47.28.58.2.11 1.06-.03 1.28.31.22.34-.88 2.09-1.22 2.28-.34.19-.48.64-.84.92s-.81.64-1.27.91c-.41.23-.47.66-.66.8 3.14-.7 5.48-3.5 5.48-6.84 0-3.86-3.14-7-7-7L7 1zm1.64 6.56c-.09.03-.28.22-.78-.08-.48-.3-.81-.23-.86-.28 0 0-.05-.11.17-.14.44-.05.98.41 1.11.41.13 0 .19-.13.41-.05.22.08.05.13-.05.14zM6.34 1.7c-.05-.03.03-.08.09-.14.03-.03.02-.11.05-.14.11-.11.61-.25.52.03-.11.27-.58.3-.66.25zm1.23.89c-.19-.02-.58-.05-.52-.14.3-.28-.09-.38-.34-.38-.25-.02-.34-.16-.22-.19.12-.03.61.02.7.08.08.06.52.25.55.38.02.13 0 .25-.17.25zm1.47-.05c-.14.09-.83-.41-.95-.52-.56-.48-.89-.31-1-.41-.11-.1-.08-.19.11-.34.19-.15.69.06 1 .09.3.03.66.27.66.55.02.25.33.5.19.63h-.01z"/></svg> Multiple languages</h2>
             <p>Chemfiles is written in C++, but you can use it with all the major
-            scientific languages:</p>
+            scientific languages</p>
 
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/index.html" title="C++">
-                        <img src="/static/images/logo-cxx.png" alt="C++ logo"/>
+                        <img src="/static/images/logo-cxx.svg" width=65px alt="C++ logo"/>
                     </a>
                     <p>C++</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles/latest/capi.html" title="C">
-                        <img src="/static/images/logo-c.png" alt="C logo"/>
+                        <img src="/static/images/logo-c.svg" width=65px alt="C logo"/>
                     </a>
                     <p>C</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.f03/latest/index.html" title="Fortran">
-                        <img src="/static/images/logo-fortran.png" alt="Fortran logo" />
+                        <img src="/static/images/logo-fortran.svg" width=65px alt="Fortran logo" />
                     </a>
                     <p>Fortran</p>
                 </div>
@@ -160,30 +164,29 @@
             <div class="row">
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.py/latest/index.html" title="Python">
-                        <img src="/static/images/logo-python.png" alt="Python logo" />
+                        <img src="/static/images/logo-python.svg" width=65px alt="Python logo" />
                     </a>
                     <p>Python 2 &amp; 3</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
-                        <img src="/static/images/logo-rust.png" alt="Rust logo" />
+                        <img src="/static/images/logo-rust.svg" width=65px alt="Rust logo" />
                     </a>
                     <p>Rust</p>
                 </div>
                 <div class="col-xs-4 text-center images-table">
                     <a href="Chemfiles.jl/latest/index.html" title="Julia">
-                        <img src="/static/images/logo-julia.png" alt="Julia logo" />
+                        <img src="/static/images/logo-julia.svg" width=65px alt="Julia logo" />
                     </a>
                     <p>Julia</p>
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-gear" aria-hidden="true"></span>
-                Principal features
-            </h2>
+            <h2><svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg> Principal features</h2>
             <ul>
-                <li>Powerfull atom selection language;</li>
+                <li>Transparently read and write compressed files (<tt>.gz</tt>, <tt>.xz</tt>, and <tt>.bz2</tt>);</li>
+                <li>Powerfull atom selection language, including constrains on multiple atoms;</li>
                 <li>Automatic file type recognition;</li>
                 <li>Support non-constant number of atoms;</li>
                 <li>Orthorombic and tricliclinic periodic boundary conditions;</li>
@@ -192,7 +195,7 @@
             </ul>
         </div>
         <div class="col-lg-4">
-            <h2><span class="mega-octicon octicon-mark-github" aria-hidden="true"></span>
+            <h2><svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                 Open-source
             </h2>
             <p>Chemfiles is open-source under the 3 clauses BSD licence, hosted
@@ -205,13 +208,132 @@
         </div>
     </div>
 </div>
+
+<div class="vspace-4"></div>
+<div class="container">
+    <h2 id=installation>Installation</h2>
+    <div class="row installation">
+        <div class="col-md-6">
+            <figure>
+                <figcaption>conda-forge</figcaption>
+                <a href="https://anaconda.org/conda-forge/chemfiles">
+                    <img src="/static/images/conda-forge.svg" height=70px alt="Conda-forge logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">conda install -c conda-forge chemfiles</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>PyPi</figcaption>
+                <a href="https://pypi.org/project/chemfiles/">
+                    <img src="/static/images/pypi-logo.svg" height=70px alt="PyPi logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">pip install chemfiles</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Julia Pkg</figcaption>
+                <a href="https://pkg.julialang.org/docs/Chemfiles/GIbve/0.9.1/">
+                    <img src="/static/images/logo-julia.svg" height=70px alt="Julia logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">Pkg.add("Chemfiles")</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Cargo</figcaption>
+                <a href="https://crates.io/crates/chemfiles">
+                    <img src="/static/images/cargo-logo.svg" height=70px alt="Cargo logo" />
+                </a>
+            </figure>
+            <pre style="text-align: center;">chemfiles = "0.9"</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>Linux distributions</figcaption>
+                <a href="https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
+                    <img src="/static/images/linux-tux.svg" height=60px alt="Tux, the Linux penguin" />
+                </a>
+            </figure>
+            See the <a href="see https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
+            documentation</a> for the installation instruction with apt or yum.
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>others</figcaption>
+                <a href="https://chemfiles.org/chemfiles/latest/installation.html">
+                </a>
+                <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="35.0" height="56.0" viewBox="0 0 10 16"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+                See the <a href="https://chemfiles.org/chemfiles/latest/installation.html">
+                documentation for more installation methods</a>
+            </figure>
+        </div>
+
+
+        <!-- <div class="col-md-6">
+
+
+            <p>Chemfiles is available for <a
+            href="">multiple
+            Linux distributions</a>, using <a
+            href="">pip</a>, the <a
+            href="">Julia
+            package manager</a>, <a
+            href="">cargo (rust package
+            manager)</a>, and at <a
+            href="">other
+            locations</a>.</p>
+
+        </div> -->
+    </div>
+
+    <div class="vspace-1"></div>
+    <div class="row installation">
+        <h3>Build from sources</h3>
+        <div class="col-md-6">
+            <figure>
+                <figcaption>latest release</figcaption>
+                <a href="https://github.com/chemfiles/chemfiles/releases">
+                    <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9 12h2l-3 3-3-3h2V7h2v5zm3-8c0-.44-.91-3-4.5-3C5.08 1 3 2.92 3 5 1.02 5 0 6.52 0 8c0 1.53 1 3 3 3h3V9.7H3C1.38 9.7 1.3 8.28 1.3 8c0-.17.05-1.7 1.7-1.7h1.3V5c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V11h2c2.08 0 4-1.16 4-3.5C16 5.06 14.08 4 12 4z"/></svg>
+                </a>
+            </figure>
+            <p><a href="https://github.com/chemfiles/chemfiles/releases">Download and extract the latest release</a>, and then run</p>
+            <pre>
+cd chemfiles && mkdir build && cd build
+cmake ..
+cmake --build . --config Release --target install
+</pre>
+        </div>
+
+        <div class="col-md-6">
+            <figure>
+                <figcaption>master</figcaption>
+                <a href="https://github.com/chemfiles/chemfiles">
+                    <svg class="octoicon" style="vertical-align: bottom;" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+            </figure>
+            <pre>
+git clone https://github.com/chemfiles/chemfiles
+cd chemfiles && mkdir build && cd build
+cmake ..
+cmake --build . --config Release --target install
+</pre>
+        </div>
+    </div>
+</div>
+
 <div class="vspace-4"></div>
 <div class="container">
     <h2>Usage examples</h2>
-    <p>
-        Here is a small usage example for Chemfiles. More examples can be found in the
-        documentation for each language.
-    </p>
+    <p>Here is how you can use chemfiles to get the position of atoms from a
+    trajectory. More examples can be found in the documentation for each
+    language.</p>
 
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#cxx-example">C++</a></li>
@@ -377,16 +499,16 @@
 <span class="k">end</span>
 </pre></div>
 
-
         </div>
     </div>
 </div>
 
-        </div>
+
+        </main>
     </div>
 
     
-        <footer class="footer">
+        <footer>
     <p>Chemfiles (C) 2014-2020 <a href="https://guillaume.fraux.fr/">Guillaume Fraux</a> and contributors
     — distributed under the BSD licence —
     twitter: <a href="https://twitter.com/libchemfiles">@libchemfiles</a>
