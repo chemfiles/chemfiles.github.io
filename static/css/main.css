@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+  padding-bottom: 0;
+  font-size: 12pt;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+main {
+  overflow:auto;
+  padding-bottom:100px; /* this needs to be bigger than footer height*/
+}
+
+#chemfiles-logo {
+    max-width: 300px;
+}
+
+.octoicon {
+    margin-right: 0.2ex;
+}
+
+.navbar {
+    background-image: none;
+    background-color: #ffffff;
+    color: black;
+}
+
+nav a {
+    color: black;
+}
+
+nav .active a {
+    color: #2a6496;
+}
+
+.nav .caret {
+    border-top-color: black;
+    border-bottom-color: black;
+}
+
+footer {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 200;
+  background-color: #eeeeee;
+  position: relative;
+  margin-top: -70px; /* negative value of footer height */
+  height: 70px;
+  clear: both;
+}
+
+.images-table {
+    padding: 5px;
+}
+
+.center-block {
+    display: block;
+    margin: auto;
+}
+
+.flat-btn {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 6px;
+    font-size: 16.5px;
+    padding: 12px 20px;
+    border: 0;
+    color: #FFF;
+    cursor: pointer;
+    outline: 0;
+}
+
+.installation figure img,.installation figure .octoicon {
+    margin: auto;
+    margin-bottom: 1em;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 2em;
+}
+
+.highlight pre {
+    padding: 1em;
+}
