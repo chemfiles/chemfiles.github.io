@@ -1,0 +1,32 @@
+name: Build website
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    # Check all PR
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: build documentation
+        run: |
+          python build.py
+          cp CNAME build/
+      - name: deploy to gh-pages
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/
+          force_orphan: true
