@@ -2,13 +2,11 @@
 {% block title %} — read and write chemistry files{% endblock %}
 
 {% block body %}
-<div class="vspace-3"></div>
-
-<div class="jumbotron">
+<div class="jumbotron" style="font-size: 21px; font-weight: 200;">
     <div class="container">
         <img
             src="/static/images/chemfiles.svg"
-            alt="Chemfiles logo" class="img-responsive pull-right"
+            alt="Chemfiles logo" class="img-responsive float-right d-none d-md-block"
             id="chemfiles-logo"
         />
 
@@ -24,26 +22,26 @@
             <br/>
             <div class="row input-group-btn text-center">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-3">
-                    <div class="dropdown">
-                        <a class="btn-success flat-btn dropdown-toggle" href='#installation'>
+                <div class="col-lg-4">
+                    <a href='#installation'>
+                        <button class="btn-success flat-btn mb-3" style="width: 12em;" type="button" name="Installation">
                             {% octoicon 'rocket', 2 %} Installation
-                        </a>
-                    </div>
+                        </button>
+                    </a>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <a href="documentation.html">
-                        <button class="btn-primary flat-btn" type="button" name="Documentation">
+                        <button class="btn-primary flat-btn" style="width: 12em;" type="button" name="Documentation">
                             {% octoicon 'book', 2 %} Documentation
                         </button>
                     </a>
                 </div>
-                <div class="col-lg-3"></div>
+                <div class="col-lg-2"></div>
             </div>
         </div>
     </div>
 </div>
-<div class="vspace-4"></div>
+<div class="mt-4"></div>
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -58,7 +56,7 @@
             NetCDF, …) formats.</p>
         </div>
         <div class="col-lg-4">
-            <img src="/static/images/words.png" alt="Word cloud" class="img-responsive" style="margin: 0 auto;"/>
+            <img src="/static/images/words.png" alt="Word cloud" class="img-fluid" style="margin: 0 auto;"/>
         </div>
         <div class="col-lg-4">
             <h2>{% octoicon 'check', 2 %} Easy to use</h2>
@@ -77,19 +75,19 @@
             scientific languages</p>
 
             <div class="row">
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="chemfiles/latest/index.html" title="C++">
                         <img src="/static/images/logo-cxx.svg" width=65px alt="C++ logo"/>
                     </a>
                     <p>C++</p>
                 </div>
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="chemfiles/latest/capi/index.html" title="C">
                         <img src="/static/images/logo-c.svg" width=65px alt="C logo"/>
                     </a>
                     <p>C</p>
                 </div>
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="chemfiles.f03/latest/index.html" title="Fortran">
                         <img src="/static/images/logo-fortran.svg" width=65px alt="Fortran logo" />
                     </a>
@@ -97,19 +95,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="chemfiles.py/latest/index.html" title="Python">
                         <img src="/static/images/logo-python.svg" width=65px alt="Python logo" />
                     </a>
                     <p>Python 2 &amp; 3</p>
                 </div>
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="chemfiles.rs/latest/index.html" title="Rust">
                         <img src="/static/images/logo-rust.svg" width=65px alt="Rust logo" />
                     </a>
                     <p>Rust</p>
                 </div>
-                <div class="col-xs-4 text-center images-table">
+                <div class="col-4 text-center images-table">
                     <a href="Chemfiles.jl/latest/index.html" title="Julia">
                         <img src="/static/images/logo-julia.svg" width=65px alt="Julia logo" />
                     </a>
@@ -144,11 +142,11 @@
     </div>
 </div>
 
-<div class="vspace-4"></div>
+<div class="mt-4"></div>
 <div class="container">
     <h2 id=installation>Installation</h2>
     <div class="row installation">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <figure>
                 <figcaption>conda-forge</figcaption>
                 <a href="https://anaconda.org/conda-forge/chemfiles">
@@ -158,7 +156,7 @@
             <pre style="text-align: center;">conda install -c conda-forge chemfiles</pre>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <figure>
                 <figcaption>PyPi</figcaption>
                 <a href="https://pypi.org/project/chemfiles/">
@@ -168,7 +166,7 @@
             <pre style="text-align: center;">pip install chemfiles</pre>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <figure>
                 <figcaption>Julia Pkg</figcaption>
                 <a href="https://pkg.julialang.org/docs/Chemfiles/GIbve/0.9.1/">
@@ -178,7 +176,7 @@
             <pre style="text-align: center;">Pkg.add("Chemfiles")</pre>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <figure>
                 <figcaption>Cargo</figcaption>
                 <a href="https://crates.io/crates/chemfiles">
@@ -195,8 +193,10 @@
                     <img src="/static/images/linux-tux.svg" height=60px alt="Tux, the Linux penguin" />
                 </a>
             </figure>
-            See the <a href="see https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
-            documentation</a> for the installation instruction with apt or yum.
+            <p class="text-center">
+                See the <a href="see https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
+                documentation</a> for the installation instruction with apt or yum.
+            </p>
         </div>
 
         <div class="col-md-6">
@@ -205,32 +205,17 @@
                 <a href="https://chemfiles.org/chemfiles/latest/installation.html">
                 </a>
                 {% octoicon 'bookmark', 3.5 %}
-                See the <a href="https://chemfiles.org/chemfiles/latest/installation.html">
-                documentation for more installation methods</a>
+                <p class="text-center">
+                    See the <a href="https://chemfiles.org/chemfiles/latest/installation.html">
+                    documentation for more installation methods</a>
+                </p>
             </figure>
         </div>
-
-
-        <!-- <div class="col-md-6">
-
-
-            <p>Chemfiles is available for <a
-            href="">multiple
-            Linux distributions</a>, using <a
-            href="">pip</a>, the <a
-            href="">Julia
-            package manager</a>, <a
-            href="">cargo (rust package
-            manager)</a>, and at <a
-            href="">other
-            locations</a>.</p>
-
-        </div> -->
     </div>
 
-    <div class="vspace-1"></div>
+    <div class="mt-2"></div>
+    <h3>Build from sources</h3>
     <div class="row installation">
-        <h3>Build from sources</h3>
         <div class="col-md-6">
             <figure>
                 <figcaption>latest release</figcaption>
@@ -263,22 +248,56 @@ cmake --build . --config Release --target install
     </div>
 </div>
 
-<div class="vspace-4"></div>
+<div class="mt-4"></div>
 <div class="container">
     <h2>Usage examples</h2>
     <p>Here is how you can use chemfiles to get the position of atoms from a
     trajectory. More examples can be found in the documentation for each
     language.</p>
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#cxx-example">C++</a></li>
-        <li><a data-toggle="tab" href="#c-example">C</a></li>
-        <li><a data-toggle="tab" href="#fortran-example">Fortran</a></li>
-        <li><a data-toggle="tab" href="#python-example">Python</a></li>
-        <li><a data-toggle="tab" href="#rust-example">Rust</a></li>
-        <li><a data-toggle="tab" href="#julia-example">Julia</a></li>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="cxx-example-tab" data-toggle="tab" href="#cxx-example" role="tab" aria-controls="cxx-example" aria-selected="true">C++</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="c-example-tab" data-toggle="tab" href="#c-example" role="tab" aria-controls="c-example" aria-selected="false">C</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="fortran-example-tab" data-toggle="tab" href="#fortran-example" role="tab" aria-controls="fortran-example" aria-selected="false">Fortran</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="python-example-tab" data-toggle="tab" href="#python-example" role="tab" aria-controls="python-example" aria-selected="false">Python</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="rust-example-tab" data-toggle="tab" href="#rust-example" role="tab" aria-controls="rust-example" aria-selected="false">Rust</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="julia-example-tab" data-toggle="tab" href="#julia-example" role="tab" aria-controls="julia-example" aria-selected="false">Julia</a>
+        </li>
     </ul>
+
     <div class="tab-content">
+        <div class="tab-pane active" id="cxx-example" role="tabpanel" aria-labelledby="cxx-example-tab">
+            {% highlight 'cpp' %}{{ raw_include('code/example.cpp')}}{% endhighlight %}
+        </div>
+        <div class="tab-pane" id="c-example" role="tabpanel" aria-labelledby="c-example-tab">
+            {% highlight 'c' %}{{ raw_include('code/example.c')}}{% endhighlight %}
+        </div>
+        <div class="tab-pane" id="fortran-example" role="tabpanel" aria-labelledby="fortran-example-tab">
+            {% highlight 'fortran' %}{{ raw_include('code/example.f95')}}{% endhighlight %}
+        </div>
+        <div class="tab-pane" id="python-example" role="tabpanel" aria-labelledby="python-example-tab">
+            {% highlight 'python' %}{{ raw_include('code/example.py')}}{% endhighlight %}
+        </div>
+        <div class="tab-pane" id="rust-example" role="tabpanel" aria-labelledby="rust-example-tab">
+            {% highlight 'rust' %}{{ raw_include('code/example.rs')}}{% endhighlight %}
+        </div>
+        <div class="tab-pane" id="julia-example" role="tabpanel" aria-labelledby="julia-example-tab">
+            {% highlight 'julia' %}{{ raw_include('code/example.jl')}}{% endhighlight %}
+        </div>
+    </div>
+
+    <!-- <div class="tab-content">
         <div id="cxx-example" class="tab-pane fade in active">
             {% highlight 'cpp' %}{{ raw_include('code/example.cpp')}}{% endhighlight %}
         </div>
@@ -297,7 +316,7 @@ cmake --build . --config Release --target install
         <div id="julia-example" class="tab-pane fade">
             {% highlight 'julia' %}{{ raw_include('code/example.jl')}}{% endhighlight %}
         </div>
-    </div>
+    </div>  -->
 </div>
 
 {% endblock %}

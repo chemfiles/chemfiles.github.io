@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   padding-bottom: 0;
   font-size: 12pt;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #wrap {
@@ -15,7 +16,6 @@ main {
 
 #chemfiles-logo {
     max-width: 300px;
-    padding-top: 20px;
 }
 
 .octoicon {
@@ -74,26 +74,6 @@ footer {
     outline: 0;
 }
 
-.vspace-1 {
-    margin-top: 1em;
-}
-
-.vspace-2 {
-    margin-top: 2em;
-}
-
-.vspace-3 {
-    margin-top: 3em;
-}
-
-.vspace-4 {
-    margin-top: 4em;
-}
-
-.vspace-5 {
-    margin-top: 5em;
-}
-
 .installation figure img,.installation figure .octoicon {
     margin: auto;
     margin-bottom: 1em;
@@ -103,4 +83,8 @@ footer {
 figcaption {
     text-align: center;
     font-size: 2em;
+}
+
+.highlight pre {
+    padding: 1em;
 }
