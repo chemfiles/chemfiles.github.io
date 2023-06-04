@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Chemfiles — Documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/octicons.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/static/css/pygments.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html">
+        <img src="/android-chrome-192x192.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Chemfiles
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsed" aria-controls="navbar-collapsed" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-collapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" >
+            <a class="nav-link" href="/contact.html">
+            <svg class="octoicon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4z"/></svg> Contact
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="documentation-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg class="octoicon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg> Documentation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="documentation-dropdown">
+            <div class="dropdown-header">C++ and C</div>
+            <a class="dropdown-item" href="/chemfiles/latest/index.html">Latest</a>
+            <a class="dropdown-item" href="/chemfiles/0.10.4/index.html">Stable (0.10.4)</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header">Python</div>
+            <a class="dropdown-item" href="/chemfiles.py/latest/">Latest</a>
+            <a class="dropdown-item" href="/chemfiles.py/0.10.4/">Stable (0.10.4)</a>
+            <div class="dropdown-header">Fortran</div>
+            <a class="dropdown-item" href="/chemfiles.f03/latest/">Latest</a>
+            <a class="dropdown-item" href="/chemfiles.f03/0.10.4/">Stable (0.10.4)</a>
+            <div class="dropdown-header">Julia</div>
+            <a class="dropdown-item" href="/Chemfiles.jl/latest/">Latest</a>
+            <a class="dropdown-item" href="/Chemfiles.jl/v0.10.40/">Stable (0.10.40)</a>
+            <div class="dropdown-header">Rust</div>
+            <a class="dropdown-item" href="/chemfiles.rs/latest/chemfiles/">Latest</a>
+            <a class="dropdown-item" href="/chemfiles.rs/0.10.4/chemfiles/">Stable (0.10.4)</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://github.com/chemfiles/chemfiles">
+                <svg class="octoicon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Sources
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="wrap">
+        <main>
+            
+<div class="container mt-5">
+    <h2 class="mb-5">Select the language and chemfiles version you are using:</h1>
+    <div class="row">
+        <div class="col-lg-3">
+            <figure>
+                <img width=120px class="center-block" src="/static/images/logo-cxx.svg" alt="C++ logo" />
+                <figcaption>C++ or C</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-3">
+            <ul>
+                <li><a href="/chemfiles/latest/">Latest development version</a></li>
+                <li><a href="/chemfiles/0.10.4/">Stable version: 0.10.4</a></li>
+                <li><a href="/chemfiles/0.9.3/">Previous version: 0.9.3</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <figure>
+                <img width=120px class="center-block" src="/static/images/logo-python.svg" alt="Python logo" />
+                <figcaption>Python 2&3</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-3">
+            <ul>
+                <li><a href="/chemfiles.py/latest/">Latest development version</a></li>
+                <li><a href="/chemfiles.py/0.10.4/">Stable version: 0.10.4</a></li>
+                <li><a href="/chemfiles.py/0.9.3/">Previous version: 0.9.3</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <div class="mt-5"></div>
+    <div class="row">
+        <div class="col-lg-3">
+            <figure>
+                <img width=120px class="center-block" src="/static/images/logo-fortran.svg" alt="Fortran logo" />
+                <figcaption>Fortran</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-3">
+            <ul>
+                <li><a href="/chemfiles.f03/latest/">Latest development version</a></li>
+                <li><a href="/chemfiles.f03/0.10.4/">Stable version: 0.10.4</a></li>
+                <li><a href="/chemfiles.f03/0.9.3/">Previous version: 0.9.3</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <figure>
+                <img width=120px class="center-block" src="/static/images/logo-julia.svg" alt="Julia logo" />
+                <figcaption>Julia</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-3">
+            <ul>
+                <li><a href="/Chemfiles.jl/latest/">Latest development version</a></li>
+                <li><a href="/Chemfiles.jl/v0.10.40/">Stable version: 0.10.40</a></li>
+                <li><a href="/Chemfiles.jl/v0.9.3/">Previous version: 0.9.3</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <div class="mt-5"></div>
+    <div class="row">
+        <div class="col-lg-3">
+            <figure>
+                <img width=120px class="center-block" src="/static/images/logo-rust.svg" alt="Rust logo" />
+                <figcaption>Rust</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-3">
+            <ul>
+                <li><a href="/chemfiles.rs/latest/">Latest development version</a></li>
+                <li><a href="/chemfiles.rs/0.10.4/">Stable version: 0.10.4</a></li>
+                <li><a href="/chemfiles.rs/0.9.3/">Previous version: 0.9.3</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    
+        <footer>
+    <p>Chemfiles (C) 2014-2020 <a href="https://guillaume.fraux.fr/">Guillaume Fraux</a> and contributors
+    — distributed under the BSD licence —
+    twitter: <a href="https://twitter.com/libchemfiles">@libchemfiles</a>
+    </p>
+</footer>
+    
+
+    <script src="/static/js/main.js"></script>
+
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-80187878-1', 'auto');
+    ga('send', 'pageview');
+</script>
+    
+</body>
+
+
+
+</html>
