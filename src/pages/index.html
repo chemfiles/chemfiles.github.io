@@ -185,19 +185,7 @@
             </figure>
             <pre style="text-align: center;">chemfiles = "0.10"</pre>
         </div>
-
-        <div class="col-md-6">
-            <figure>
-                <figcaption>Linux distributions</figcaption>
-                <a href="https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
-                    <img src="/static/images/linux-tux.svg" height=60px alt="Tux, the Linux penguin" />
-                </a>
-            </figure>
-            <p class="text-center">
-                See the <a href="see https://chemfiles.org/chemfiles/latest/installation.html#pre-compiled-binaries">
-                documentation</a> for the installation instruction with apt or yum.
-            </p>
-        </div>
+        <div class="col-md-3"></div>
 
         <div class="col-md-6">
             <figure>
@@ -210,40 +198,6 @@
                     documentation for more installation methods</a>
                 </p>
             </figure>
-        </div>
-    </div>
-
-    <div class="mt-2"></div>
-    <h3>Build from sources</h3>
-    <div class="row installation">
-        <div class="col-md-6">
-            <figure>
-                <figcaption>latest release</figcaption>
-                <a href="https://github.com/chemfiles/chemfiles/releases">
-                    {% octoicon 'cloud-download', 4 %}
-                </a>
-            </figure>
-            <p><a href="https://github.com/chemfiles/chemfiles/releases">Download and extract the latest release</a>, and then run</p>
-            <pre>
-cd chemfiles && mkdir build && cd build
-cmake ..
-cmake --build . --config Release --target install
-</pre>
-        </div>
-
-        <div class="col-md-6">
-            <figure>
-                <figcaption>master</figcaption>
-                <a href="https://github.com/chemfiles/chemfiles">
-                    {% octoicon 'mark-github', 4 %}
-                </a>
-            </figure>
-            <pre>
-git clone https://github.com/chemfiles/chemfiles
-cd chemfiles && mkdir build && cd build
-cmake ..
-cmake --build . --config Release --target install
-</pre>
         </div>
     </div>
 </div>
